@@ -1,0 +1,35 @@
+{
+  "name": "consumeraffairs-mortgage-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndiesslin/ConsumerAffairs-Mortgage-Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndiesslin/ConsumerAffairs-Mortgage-Calculator/issues"
+  },
+  "homepage": "https://github.com/ndiesslin/ConsumerAffairs-Mortgage-Calculator#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "jsdoc": "^3.6.7",
+    "node-sass": "^6.0.1",
+    "normalize": "^0.3.1",
+    "normalize-scss": "^7.0.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0"
+  }
+}

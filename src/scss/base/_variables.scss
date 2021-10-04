@@ -1,0 +1,34 @@
+// Colors
+$white: #ffffff;
+$baseBlack: #2E2F2F;
+$baseBlackLighter: #5D5D5D;
+$baseGray: #DDDDDD;
+$baseGrayBackground: #FBFBFB;
+$baseGrayBorder: #BBBCBC;
+$primaryBlue: #316EEF;
+$primaryBlueDarkest: #1B3979;
+$tertiaryRed: #D83E00;
+
+// Fonts
+$helvetica: 'Neue Helvetica', sans-serif;
+
+@font-face {
+  font-family: 'Graphik';
+  src: url(./fonts/Graphik-Medium.1830c100eb44.woff2);
+  font-weight: 400;
+}
+$graphik: 'Graphik', sans-serif;
+
+@font-face {
+  font-family: 'Publico';
+  src: url(./fonts/PublicoHeadline-Medium-Web.11e8e288d372.woff2);
+  font-weight: 400;
+}
+$publico: 'Publico', sans-serif;
+
+// Borders
+$baseBorderRadius: 8px;
+
+$baseBorderGray: solid 1px $baseGrayBorder;
+
+$baseBorderGrayTertiaryRed: solid 1px $tertiaryRed;
