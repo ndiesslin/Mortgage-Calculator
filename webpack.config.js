@@ -10,7 +10,7 @@ module.exports = {
     filename: './js/main.js',
     publicPath: '/',
   },
-  mode: 'production',
+  mode: 'development',
   devtool: 'source-map',
   module: {
     rules: [
@@ -37,6 +37,13 @@ module.exports = {
         }]
       }
     ]
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
   },
   resolve: {
     extensions: ['.js'],

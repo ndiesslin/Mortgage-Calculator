@@ -1,0 +1,35 @@
+// Fonts
+$helvetica: 'Helvetica Neue', sans-serif;
+
+@font-face {
+  font-family: 'Graphik';
+  src: url(../assets/fonts/Graphik-Medium.woff2) format('woff2');
+  font-weight: 400;
+}
+$graphik: 'Graphik', sans-serif;
+
+@font-face {
+  font-family: 'Publico';
+  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format('woff2');
+  font-weight: 400;
+}
+$publico: 'Publico', sans-serif;
+
+// Base Typography settings
+html, body {
+  font-family: $graphik;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.h1 {
+  font-family: $publico;
+  font-weight: 400;
+  font-size: pxToRem(31.25);
+  line-height: pxToRem(39.06);
+}
+
+.subtitle {
+  font-family: $helvetica;
+  font-weight: 400;
+}
