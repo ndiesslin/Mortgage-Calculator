@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/calculate-mortgage.js":
@@ -8,29 +7,38 @@
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 /* Set calculate mortgage default values. */
-const defaultTax = 1000;
-const defaultInterestRate = 8.0;
-const defaultLoanAmount = 1000;
-const defaultYearsOfMortgage = 30;
-const defaultAnnualInsurance = 300;
+var defaultYearsOfMortgage = 30;
+var defaultInterestRate = 8.0;
+var defaultLoanAmount = 1000;
+var defaultTax = 1000;
+var defaultAnnualInsurance = 300;
 /**
  * Mortgage calculation.
  * @namespace calculateMortgage
  * @class
  */
 
-class calculateMortgage {
-  /* Get values for constructor */
-  constructor() {
-    this.annualTax = defaultTax;
+var calculateMortgage = /*#__PURE__*/function () {
+  /* Get values for constructor. */
+  function calculateMortgage() {
+    _classCallCheck(this, calculateMortgage);
+
+    this.yearsOfMortgage = defaultYearsOfMortgage;
     this.interestRate = defaultInterestRate;
     this.loanAmount = defaultLoanAmount;
-    this.yearsOfMortgage = defaultYearsOfMortgage;
+    this.annualTax = defaultTax;
     this.annualInsurance = defaultAnnualInsurance;
   }
   /**
@@ -39,73 +47,274 @@ class calculateMortgage {
    */
 
 
-  calculateAllNumbers() {
-    let calculatedPrincipalAndInterest = this.constructor.principalAndInterest(this.interestRate, this.loanAmount, this.yearsOfMortgage);
-    let calculatedTax = this.constructor.calculateTax(this.annualTax);
-    let calculatedInsurance = this.constructor.calculateInsurance(this.annualInsurance);
-    let calculatedMonthlyPayment = this.constructor.calculateMonthlyPayment(calculatedPrincipalAndInterest, calculatedTax, calculatedInsurance);
-    return {
-      principalAndInterest: calculatedPrincipalAndInterest,
-      tax: calculatedTax,
-      insurance: calculatedInsurance,
-      monthlyPayment: calculatedMonthlyPayment
-    };
-  }
-  /**
-   * @function principalAndInterest
-   * @memberof calculateMortgage
-   * @static
-   */
+  _createClass(calculateMortgage, [{
+    key: "calculateAllNumbers",
+    value: function calculateAllNumbers() {
+      var calculatedPrincipalAndInterest = this.constructor.principalAndInterest(this.interestRate, this.loanAmount, this.yearsOfMortgage);
+      var calculatedTax = this.constructor.calculateTax(this.annualTax);
+      var calculatedInsurance = this.constructor.calculateInsurance(this.annualInsurance);
+      var calculatedMonthlyPayment = this.constructor.calculateMonthlyPayment(calculatedPrincipalAndInterest, calculatedTax, calculatedInsurance);
+      /* @returns @object of mortgage calculation. */
 
+      return {
+        principalAndInterest: calculatedPrincipalAndInterest,
+        tax: calculatedTax,
+        insurance: calculatedInsurance,
+        monthlyPayment: calculatedMonthlyPayment
+      };
+    }
+    /**
+     * @function principalAndInterest
+     * @memberof calculateMortgage
+     * @static
+     */
 
-  static principalAndInterest(interestRate, loanAmount, yearsOfMortgage) {
-    let calculated = interestRate / 100 / 12 * loanAmount / (1 - Math.pow(1 + interestRate / 100 / 12, -yearsOfMortgage * 12));
-    let roundedCalculation = parseInt(calculated.toFixed(2));
-    return roundedCalculation;
-  }
-  /**
-   * @function calculateTax
-   * @memberof calculateMortgage
-   * @static
-   */
+  }], [{
+    key: "principalAndInterest",
+    value: function principalAndInterest(interestRate, loanAmount, yearsOfMortgage) {
+      var calculated = interestRate / 100 / 12 * loanAmount / (1 - Math.pow(1 + interestRate / 100 / 12, -yearsOfMortgage * 12));
+      var roundedCalculation = calculated.toFixed(2);
+      /* @returns @type string of principal interest calculation. */
 
+      return roundedCalculation;
+    }
+    /**
+     * @function calculateTax
+     * @memberof calculateMortgage
+     * @static
+     */
 
-  static calculateTax(annualTax) {
-    let calculated = annualTax / 12;
-    let roundedCalculation = parseInt(calculated.toFixed(2));
-    return roundedCalculation;
-  }
-  /**
-   * @function calculateInsurance
-   * @memberof calculateMortgage
-   * @static
-   */
+  }, {
+    key: "calculateTax",
+    value: function calculateTax(annualTax) {
+      var calculated = annualTax / 12;
+      var roundedCalculation = calculated.toFixed(2);
+      /* @returns @type string of tax calculation. */
 
+      return roundedCalculation;
+    }
+    /**
+     * @function calculateInsurance
+     * @memberof calculateMortgage
+     * @static
+     */
 
-  static calculateInsurance(annualInsurance) {
-    let calculated = annualInsurance / 12;
-    let roundedCalculation = parseInt(calculated.toFixed(2));
-    return roundedCalculation;
-  }
-  /**
-   * @function calculateMonthlyPayment
-   * @memberof calculateMortgage
-   * @static
-   */
+  }, {
+    key: "calculateInsurance",
+    value: function calculateInsurance(annualInsurance) {
+      var calculated = annualInsurance / 12;
+      var roundedCalculation = calculated.toFixed(2);
+      /* @returns @type string of insurance calculation. */
 
+      return roundedCalculation;
+    }
+    /**
+     * @function calculateMonthlyPayment
+     * @memberof calculateMortgage
+     * @static
+     */
 
-  static calculateMonthlyPayment(principleAndInterests, tax, insurance) {
-    let calculated = principleAndInterests + tax + insurance;
-    console.log(calculated);
-    let roundedCalculation = parseInt(calculated.toFixed(2));
-    return roundedCalculation;
-  }
+  }, {
+    key: "calculateMonthlyPayment",
+    value: function calculateMonthlyPayment(principleAndInterests, tax, insurance) {
+      var calculated = parseFloat(principleAndInterests) + parseFloat(tax) + parseFloat(insurance);
+      /* @returns @type string of monthly payment calculation. */
 
-}
+      var roundedCalculation = calculated.toFixed(2);
+      return roundedCalculation;
+    }
+  }]);
+
+  return calculateMortgage;
+}();
 /* Export class from calculator to be used elsewhere. */
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calculateMortgage);
+
+/***/ }),
+
+/***/ "./src/js/form-slider.js":
+/*!*******************************!*\
+  !*** ./src/js/form-slider.js ***!
+  \*******************************/
+/***/ (() => {
+
+/* Get and set slider value to input. */
+document.querySelectorAll('.range__slider').forEach(function (slider) {
+  /* Get min max and value to set slider gradient. */
+  var min = slider.min;
+  var max = slider.max;
+  var value = slider.value;
+  /* Set slider background. */
+
+  slider.style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((value - min) / (max - min) * 100, "%, #DDDDDD ").concat((value - min) / (max - min) * 100, "%, #DDDDDD 100%)");
+  slider.addEventListener('input', function (event) {
+    var slider = event.target;
+    var value = slider.value;
+    var target = slider.dataset.target;
+    document.querySelector(target).value = value;
+    /* Set slider background. */
+
+    event.target.style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD ").concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD 100%)");
+  });
+});
+/* Get and set input value to slider. */
+
+document.querySelectorAll('.range-input-group .calculator__input').forEach(function (sliderInput) {
+  sliderInput.addEventListener('input', function (event) {
+    var slider = event.target;
+    var value = slider.value;
+    var target = slider.dataset.target;
+    document.querySelector(target).value = value;
+    /* Set slider background. */
+
+    document.querySelector(target).style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD ").concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD 100%)");
+  });
+});
+
+/***/ }),
+
+/***/ "./src/js/form-validate.js":
+/*!*********************************!*\
+  !*** ./src/js/form-validate.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/* Set inputs to validate. */
+var inputsToValidate = document.querySelectorAll('.calculator__input');
+/**
+ * Form Validation.
+ * @namespace formValidate
+ * @class
+ */
+
+var formValidate = /*#__PURE__*/function () {
+  /* Get values for constructor. */
+  function formValidate() {
+    _classCallCheck(this, formValidate);
+
+    this.inputsToValidate = inputsToValidate;
+  }
+  /**
+   * @function valid
+   * @memberof formValidate
+   */
+
+
+  _createClass(formValidate, [{
+    key: "valid",
+    value: function valid() {
+      var valid = this.constructor.validateInputs(this.inputsToValidate);
+      /* @returns @type boolean of form validation. */
+
+      return valid;
+    }
+    /**
+     * @function validateInputs
+     * @memberof formValidate
+     * @static
+     */
+
+  }], [{
+    key: "validateInputs",
+    value: function validateInputs(inputs) {
+      var valid = true;
+      inputs.forEach(function (input) {
+        if (input.value) {
+          input.parentNode.classList.remove('calculator--invalid');
+        } else {
+          input.parentNode.classList.add('calculator--invalid');
+          valid = false;
+        }
+      });
+      /* @returns @type boolean of valid or not. */
+
+      return valid;
+    }
+  }]);
+
+  return formValidate;
+}();
+/* Export class from calculator to be used elsewhere. */
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formValidate);
+
+/***/ }),
+
+/***/ "./src/js/handle-form.js":
+/*!*******************************!*\
+  !*** ./src/js/handle-form.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _calculate_mortgage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calculate-mortgage */ "./src/js/calculate-mortgage.js");
+/* harmony import */ var _form_validate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form-validate */ "./src/js/form-validate.js");
+/* Import calculateMortgage class for calculations. */
+
+/* Import formValidate class for form validation. */
+
+
+/* Create calculate class. */
+
+var _calculate = new _calculate_mortgage__WEBPACK_IMPORTED_MODULE_0__["default"]();
+/* Create form validation class. */
+
+
+var _formValidate = new _form_validate__WEBPACK_IMPORTED_MODULE_1__["default"]();
+/* When form updates calculate changes. */
+
+
+document.querySelector('.calculator').addEventListener('submit', function (event) {
+  event.preventDefault();
+  /* Get values from the submitted form. */
+
+  var form = event.target;
+  var yearsOfMortgage = form.querySelector('.calculator__input-years').value;
+  var interestRate = form.querySelector('.calculator__input-interest').value;
+  var loanAmount = form.querySelector('.calculator__input-amount').value;
+  var annualTax = form.querySelector('.calculator__input-tax').value;
+  var annualInsurance = form.querySelector('.calculator__input-insurance').value;
+  /* Validate fields, return if not valid. */
+
+  if (!_formValidate.valid()) {
+    return;
+  }
+  /* Calculate initial values. */
+
+
+  _calculate.yearsOfMortgage = yearsOfMortgage;
+  _calculate.interestRate = interestRate;
+  _calculate.loanAmount = loanAmount;
+  _calculate.annualTax = annualTax;
+  _calculate.annualInsurance = annualInsurance;
+
+  var _calculated = _calculate.calculateAllNumbers();
+  /* Set calculated values. */
+
+
+  document.querySelector('.results__price-principal').textContent = '$ ' + _calculated.principalAndInterest;
+  document.querySelector('.results__price-tax').textContent = '$ ' + _calculated.tax;
+  document.querySelector('.results__price-insurance').textContent = '$ ' + _calculated.insurance;
+  document.querySelector('.results__price-total').textContent = '$ ' + _calculated.monthlyPayment;
+  /* Set results as active. */
+
+  document.querySelector('.results').classList.add('results--active');
+});
 
 /***/ }),
 
@@ -115,6 +324,7 @@ class calculateMortgage {
   \*****************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -135,7 +345,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Graphik\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n.h1 {\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.953125rem;\n  line-height: 2.44125rem;\n}\n\n.subtitle {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-weight: 400;\n}", "",{"version":3,"sources":["webpack://./src/scss/base/_typography.scss","webpack://./src/scss/main.scss"],"names":[],"mappings":"AAGA;EACE,sBAAA;EACA,4DAAA;EACA,gBAAA;ACFF;ADMA;EACE,sBAAA;EACA,4DAAA;EACA,gBAAA;ACJF;ADSA;EACE,kCAXQ;EAYR,gBAAA;EACA,eAAA;ACPF;;ADUA;EACE,kCAVQ;EAWR,gBAAA;EACA,sBAAA;EACA,uBAAA;ACPF;;ADUA;EACE,yCA/BU;EAgCV,gBAAA;ACPF","sourcesContent":["// Fonts\n$helvetica: 'Helvetica Neue', sans-serif;\n\n@font-face {\n  font-family: 'Graphik';\n  src: url(../assets/fonts/Graphik-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$graphik: 'Graphik', sans-serif;\n\n@font-face {\n  font-family: 'Publico';\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$publico: 'Publico', sans-serif;\n\n// Base Typography settings\nhtml, body {\n  font-family: $graphik;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n.h1 {\n  font-family: $publico;\n  font-weight: 400;\n  font-size: pxToRem(31.25);\n  line-height: pxToRem(39.06);\n}\n\n.subtitle {\n  font-family: $helvetica;\n  font-weight: 400;\n}","@font-face {\n  font-family: \"Graphik\";\n  src: url(../assets/fonts/Graphik-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n.h1 {\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.953125rem;\n  line-height: 2.44125rem;\n}\n\n.subtitle {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-weight: 400;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Graphik\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n.subtitle {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-weight: 400;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\nhr {\n  margin: 0 0 1rem;\n  border: none;\n  border-bottom: solid 1px #DDDDDD;\n  width: calc(100% + 2rem);\n  margin-left: -1rem;\n}\n@media (min-width: 768px) {\n  hr {\n    width: 100%;\n    margin: 0 0 2.25rem;\n    margin-left: 0;\n  }\n}\n\ninput {\n  margin: 0;\n}\n\n.header {\n  margin: 0 0 3rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.header__h1 {\n  padding: 0.96875rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.25rem;\n  line-height: 1.5625rem;\n}\n@media (min-width: 768px) {\n  .header__h1 {\n    padding: 0.78125rem 1.0625rem;\n    font-size: 1.9375rem;\n    line-height: 2.4375rem;\n  }\n}\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 1.875rem;\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 2.25rem;\n}\n@media (min-width: 768px) {\n  .double-input-group {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 1.3125rem;\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n}\n.range__slider {\n  margin: 0 1rem;\n  -webkit-appearance: none;\n  height: 0.5rem;\n  background: #1B3979;\n  outline: none;\n  border-radius: 8px;\n}\n@media (min-width: 768px) {\n  .range__slider {\n    height: 1rem;\n  }\n}\n.range__slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-webkit-slider-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider::-moz-range-thumb {\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-moz-range-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__scale {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  line-height: 1.5rem;\n}\n@media (min-width: 768px) {\n  .range__scale {\n    font-family: \"Graphik\", sans-serif;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.button {\n  display: block;\n  width: 100%;\n  padding: 0.625rem;\n  color: #ffffff;\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n  text-align: center;\n  background-color: #316EEF;\n  border-radius: 8px;\n  border: none;\n}\n.button:hover {\n  cursor: pointer;\n}\n@media (min-width: 768px) {\n  .button {\n    padding: 0.8125rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.calculator-wrapper {\n  display: grid;\n  padding: 0 1.0625rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  grid-template-columns: 100%;\n}\n@media (min-width: 768px) {\n  .calculator-wrapper {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.calculator {\n  padding: 1rem 1rem 2.25rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 0;\n  z-index: 2;\n}\n@media (min-width: 768px) {\n  .calculator {\n    padding: 1.5rem 1.5rem 2.125rem;\n    border-radius: 8px;\n  }\n}\n.calculator__title {\n  margin: 0 0 1rem;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__label {\n  display: block;\n  margin: 0 0 0.5rem;\n  color: #2E2F2F;\n  font-size: 0.875rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__input {\n  position: relative;\n  border: solid 1px #BBBCBC;\n  border-radius: 8px;\n  padding: 0.875rem 1.5rem;\n  color: #000000;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  width: 100%;\n}\n.calculator__input:focus {\n  outline: none;\n  border: solid 1px #316EEF;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.calculator__input--with-cost {\n  padding: 0.875rem 1.5rem 0.875rem 2.3125rem;\n}\n.calculator__invalid-message {\n  display: none;\n}\n.calculator--invalid .calculator__input {\n  margin: 0 0 0.5rem;\n  border: solid 1px #D83E00;\n}\n.calculator--invalid .calculator__invalid-message {\n  display: block;\n  font-size: 0.8125rem;\n  color: #D83E00;\n}\n.calculator__input-years, .calculator__input-interest {\n  padding-right: 10px;\n  text-align: center;\n}\n.calculator__input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: 0.9375rem 1.5625rem;\n  font-size: 1rem;\n  line-height: 1.25rem;\n}\n\n.results {\n  margin: 0 0.375rem;\n  padding: 3.5rem 2rem 3.375rem;\n  background-color: #FBFBFB;\n  display: none;\n  border-radius: 0 0 8px 8px;\n}\n@media (min-width: 768px) {\n  .results {\n    padding: 3.5rem 2rem 2.9375rem;\n    margin: 2.5rem 0 0;\n    display: block;\n    border-radius: 0 8px 8px 0;\n  }\n}\n.results--active {\n  display: block;\n}\n.results--active .results__price {\n  color: #000000;\n}\n.results__title {\n  margin: 0 0 1.5rem;\n}\n.results--title-main {\n  margin: 0 0 1.5rem;\n}\n.results__price {\n  margin: 0;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  text-align: right;\n}\n@media (min-width: 768px) {\n  .results__price {\n    font-size: 1.5rem;\n    line-height: 2.375rem;\n    margin: 0 0 1rem;\n    color: #BBBCBC;\n    text-align: left;\n  }\n}\n.results--price-last {\n  margin: 0;\n}\n.results--price-wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: 1.5625rem 0 0.75rem;\n  border-bottom: solid 1px #DDDDDD;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper {\n    display: block;\n    padding: 0;\n    border: none;\n  }\n}\n.results--price-wrapper-first {\n  padding: 0 0 0.75rem;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper-first {\n    padding: 0;\n  }\n}\n.results__medium-title {\n  margin: 0;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n  color: #5D5D5D;\n}\n@media (min-width: 768px) {\n  .results__medium-title {\n    margin: 0 0 0.5rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n.results__small-title {\n  margin: 0;\n  color: #5D5D5D;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n}\n@media (min-width: 768px) {\n  .results__small-title {\n    line-height: 1.75rem;\n    margin: 0 0 0.5rem;\n  }\n}\n.results__hr {\n  display: none;\n  margin: 0 0 1.5rem;\n}\n@media (min-width: 768px) {\n  .results__hr {\n    display: block;\n  }\n}", "",{"version":3,"sources":["webpack://./src/scss/base/_typography.scss","webpack://./src/scss/main.scss","webpack://./src/scss/layout/_general.scss","webpack://./src/scss/base/_borders.scss","webpack://./src/scss/utilities/_breakpoints.scss","webpack://./src/scss/layout/_header.scss","webpack://./src/scss/layout/_form.scss","webpack://./src/scss/base/_colors.scss","webpack://./src/scss/modules/_buttons.scss","webpack://./src/scss/modules/_calculator.scss","webpack://./src/scss/modules/_results.scss"],"names":[],"mappings":"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","sourcesContent":["// Fonts\n$helvetica: 'Helvetica Neue', sans-serif;\n\n@font-face {\n  font-family: 'Graphik';\n  src: url(../assets/fonts/Graphik-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$graphik: 'Graphik', sans-serif;\n\n@font-face {\n  font-family: 'Publico';\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$publico: 'Publico', sans-serif;\n\n// Base Typography settings\nhtml, body {\n  font-family: $graphik;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n.subtitle {\n  font-family: $helvetica;\n  font-weight: 400;\n}","@font-face {\n  font-family: \"Graphik\";\n  src: url(../assets/fonts/Graphik-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n.subtitle {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-weight: 400;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\nhr {\n  margin: 0 0 1rem;\n  border: none;\n  border-bottom: solid 1px #DDDDDD;\n  width: calc(100% + 2rem);\n  margin-left: -1rem;\n}\n@media (min-width: 768px) {\n  hr {\n    width: 100%;\n    margin: 0 0 2.25rem;\n    margin-left: 0;\n  }\n}\n\ninput {\n  margin: 0;\n}\n\n.header {\n  margin: 0 0 3rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.header__h1 {\n  padding: 0.96875rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.25rem;\n  line-height: 1.5625rem;\n}\n@media (min-width: 768px) {\n  .header__h1 {\n    padding: 0.78125rem 1.0625rem;\n    font-size: 1.9375rem;\n    line-height: 2.4375rem;\n  }\n}\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 1.875rem;\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 2.25rem;\n}\n@media (min-width: 768px) {\n  .double-input-group {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 1.3125rem;\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n}\n.range__slider {\n  margin: 0 1rem;\n  -webkit-appearance: none;\n  height: 0.5rem;\n  background: #1B3979;\n  outline: none;\n  border-radius: 8px;\n}\n@media (min-width: 768px) {\n  .range__slider {\n    height: 1rem;\n  }\n}\n.range__slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-webkit-slider-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider::-moz-range-thumb {\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-moz-range-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__scale {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  line-height: 1.5rem;\n}\n@media (min-width: 768px) {\n  .range__scale {\n    font-family: \"Graphik\", sans-serif;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.button {\n  display: block;\n  width: 100%;\n  padding: 0.625rem;\n  color: #ffffff;\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n  text-align: center;\n  background-color: #316EEF;\n  border-radius: 8px;\n  border: none;\n}\n.button:hover {\n  cursor: pointer;\n}\n@media (min-width: 768px) {\n  .button {\n    padding: 0.8125rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.calculator-wrapper {\n  display: grid;\n  padding: 0 1.0625rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  grid-template-columns: 100%;\n}\n@media (min-width: 768px) {\n  .calculator-wrapper {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.calculator {\n  padding: 1rem 1rem 2.25rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 0;\n  z-index: 2;\n}\n@media (min-width: 768px) {\n  .calculator {\n    padding: 1.5rem 1.5rem 2.125rem;\n    border-radius: 8px;\n  }\n}\n.calculator__title {\n  margin: 0 0 1rem;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__label {\n  display: block;\n  margin: 0 0 0.5rem;\n  color: #2E2F2F;\n  font-size: 0.875rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__input {\n  position: relative;\n  border: solid 1px #BBBCBC;\n  border-radius: 8px;\n  padding: 0.875rem 1.5rem;\n  color: #000000;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  width: 100%;\n}\n.calculator__input:focus {\n  outline: none;\n  border: solid 1px #316EEF;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.calculator__input--with-cost {\n  padding: 0.875rem 1.5rem 0.875rem 2.3125rem;\n}\n.calculator__invalid-message {\n  display: none;\n}\n.calculator--invalid .calculator__input {\n  margin: 0 0 0.5rem;\n  border: solid 1px #D83E00;\n}\n.calculator--invalid .calculator__invalid-message {\n  display: block;\n  font-size: 0.8125rem;\n  color: #D83E00;\n}\n.calculator__input-years, .calculator__input-interest {\n  padding-right: 10px;\n  text-align: center;\n}\n.calculator__input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: 0.9375rem 1.5625rem;\n  font-size: 1rem;\n  line-height: 1.25rem;\n}\n\n.results {\n  margin: 0 0.375rem;\n  padding: 3.5rem 2rem 3.375rem;\n  background-color: #FBFBFB;\n  display: none;\n  border-radius: 0 0 8px 8px;\n}\n@media (min-width: 768px) {\n  .results {\n    padding: 3.5rem 2rem 2.9375rem;\n    margin: 2.5rem 0 0;\n    display: block;\n    border-radius: 0 8px 8px 0;\n  }\n}\n.results--active {\n  display: block;\n}\n.results--active .results__price {\n  color: #000000;\n}\n.results__title {\n  margin: 0 0 1.5rem;\n}\n.results--title-main {\n  margin: 0 0 1.5rem;\n}\n.results__price {\n  margin: 0;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  text-align: right;\n}\n@media (min-width: 768px) {\n  .results__price {\n    font-size: 1.5rem;\n    line-height: 2.375rem;\n    margin: 0 0 1rem;\n    color: #BBBCBC;\n    text-align: left;\n  }\n}\n.results--price-last {\n  margin: 0;\n}\n.results--price-wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: 1.5625rem 0 0.75rem;\n  border-bottom: solid 1px #DDDDDD;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper {\n    display: block;\n    padding: 0;\n    border: none;\n  }\n}\n.results--price-wrapper-first {\n  padding: 0 0 0.75rem;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper-first {\n    padding: 0;\n  }\n}\n.results__medium-title {\n  margin: 0;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n  color: #5D5D5D;\n}\n@media (min-width: 768px) {\n  .results__medium-title {\n    margin: 0 0 0.5rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n.results__small-title {\n  margin: 0;\n  color: #5D5D5D;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n}\n@media (min-width: 768px) {\n  .results__small-title {\n    line-height: 1.75rem;\n    margin: 0 0 0.5rem;\n  }\n}\n.results__hr {\n  display: none;\n  margin: 0 0 1.5rem;\n}\n@media (min-width: 768px) {\n  .results__hr {\n    display: block;\n  }\n}","// Resets\n* { box-sizing: border-box; }\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\nhr {\n  margin: 0 0 pxToRem(16);\n  border: none;\n  border-bottom: $baseBorderGrayHr;\n  width: calc(100% + pxToRem(32));\n  margin-left: - pxToRem(16);\n\n  @include breakpoint(medium) {\n    width: 100%;\n    margin: 0 0 pxToRem(36);\n    margin-left: 0;\n  }\n}\n\ninput {\n  margin: 0;\n}","// Borders\n$baseBorderRadius: 8px;\n$baseBorderGray: solid 1px $baseGrayBorder;\n$baseBorderGrayHr: solid 1px $baseGray;\n$baseBorderTertiaryRed: solid 1px $tertiaryRed;\n$baseBorderShadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n$baseBorderPrimaryBlue: solid 1px $primaryBlue;","/// Mixin to manage responsive breakpoints\n@mixin breakpoint($breakpoint) {\n  // If the key exists in the map\n  @if map-has-key($breakpoints, $breakpoint) {\n    // Prints a media query based on the value\n    @media (min-width: map-get($breakpoints, $breakpoint)) {\n      @content;\n    }\n  }\n \n  // If the key doesn't exist in the map\n  @else {\n    @warn \"Unfortunately, no value could be retrieved from `#{$breakpoint}`. \"\n        + \"Available breakpoints are: #{map-keys($breakpoints)}.\";\n  }\n}",".header {\n  margin: 0 0 pxToRem(48);\n  box-shadow: $baseBorderShadow;\n\n  &__h1 {\n    padding: pxToRem(15.5) pxToRem(17);\n    margin: auto;\n    max-width: pxToRem($container-max-width);\n    font-family: $publico;\n    font-weight: 400;\n    font-size: pxToRem(20);\n    line-height: pxToRem(25);\n\n    @include breakpoint(medium) {\n      padding: pxToRem(12.5) pxToRem(17);\n      font-size: pxToRem(31);\n      line-height: pxToRem(39);\n    }\n  }\n}\n",".range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 pxToRem(30);\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 pxToRem(36);\n\n  @include breakpoint(medium) {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 pxToRem(21);\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n\n  &__slider {\n    margin: 0 pxToRem(16);\n    -webkit-appearance: none;\n    height: pxToRem(8);\n    background: $primaryBlueDarkest;\n    outline: none;\n    border-radius: $baseBorderRadius;\n\n    @include breakpoint(medium) {\n      height: pxToRem(16);\n    }\n\n    &::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: pxToRem(24);\n      height: pxToRem(24);\n      background: $white;\n      cursor: pointer;\n      box-shadow: $baseBorderShadow;\n      border-radius: 50%;\n\n      @include breakpoint(medium) {\n        width: pxToRem(36);\n        height: pxToRem(36);\n      }\n    }\n\n    &::-moz-range-thumb {\n      width: pxToRem(24);\n      height: pxToRem(24);\n      background: $white;\n      cursor: pointer;\n      box-shadow: $baseBorderShadow;\n      border-radius: 50%;\n\n      @include breakpoint(medium) {\n        width: pxToRem(36);\n        height: pxToRem(36);\n      }\n    }\n  }\n\n  &__scale {\n    font-family: $helvetica;\n    font-size: pxToRem(15);\n    line-height: pxToRem(24);\n\n    @include breakpoint(medium) {\n      font-family: $graphik;\n      font-size: pxToRem(20);\n      line-height: pxToRem(30);\n    }\n  }\n}","// Colors\n$white: #ffffff;\n$baseBlack: #000000;\n$baseBlackLight: #2E2F2F;\n$baseBlackLighter: #5D5D5D;\n$baseGray: #DDDDDD;\n$baseGrayBackground: #FBFBFB;\n$baseGrayBorder: #BBBCBC;\n$primaryBlue: #316EEF;\n$primaryBlueDarkest: #1B3979;\n$tertiaryRed: #D83E00;",".button {\n  display: block;\n  width: 100%;\n  padding: pxToRem(10);\n  color: $white;\n  font-size: pxToRem(18);\n  font-weight: 600;\n  line-height: pxToRem(28);\n  text-align: center;\n  background-color: $primaryBlue;\n  border-radius: $baseBorderRadius;\n  border: none;\n\n  &:hover {\n    cursor: pointer;\n  }\n\n  @include breakpoint(medium) {\n    padding: pxToRem(13);\n    font-size: pxToRem(20);\n    line-height: pxToRem(30);\n  }\n}",".calculator-wrapper {\n  display: grid;\n  padding: 0 pxToRem(17) pxToRem(17);\n  margin: auto;\n  max-width: pxToRem($container-max-width);\n  grid-template-columns: 100%;\n\n  @include breakpoint(medium) {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.calculator {\n  padding: pxToRem(16) pxToRem(16) pxToRem(36);\n  box-shadow: $baseBorderShadow;\n  border-radius: 0;\n  z-index: 2;\n\n  @include breakpoint(medium) {\n    padding: pxToRem(24) pxToRem(24) pxToRem(34);\n    border-radius: $baseBorderRadius;\n  }\n\n  &__title {\n    margin: 0 0 pxToRem(16);\n    font-family: $helvetica;\n    font-size: pxToRem(15);\n    font-weight: 400;\n    line-height: pxToRem(24);\n  }\n\n  &__label {\n    display: block;\n    margin: 0 0 pxToRem(8);\n    color: $baseBlackLight;\n    font-size: pxToRem(14);\n    font-weight: 400;\n    line-height: pxToRem(24);\n  }\n\n  &__input {\n    position: relative;\n    border: $baseBorderGray;\n    border-radius: $baseBorderRadius;\n    padding: pxToRem(14) pxToRem(24);\n    color: $baseBlack;\n    font-size: pxToRem(16);\n    line-height: pxToRem(20);\n    width: 100%;\n\n    &:focus {\n      outline: none;\n      border: $baseBorderPrimaryBlue;\n      box-shadow: $baseBorderShadow;\n    }\n\n    &--with-cost {\n      padding: pxToRem(14) pxToRem(24) pxToRem(14) pxToRem(37);\n    }\n  }\n\n  &__invalid-message {\n    display: none;\n  }\n\n  &--invalid { \n    .calculator__input {\n      margin: 0 0 pxToRem(8);\n      border: $baseBorderTertiaryRed;\n    }\n\n    .calculator__invalid-message {\n      display: block;\n      font-size: pxToRem(13);\n      color: $tertiaryRed;\n    }\n  }\n\n  &__input-years, \n  &__input-interest {\n    // Add space for number increments when centered.\n    padding-right: 10px;\n    text-align: center;\n  }\n\n  &__input-cost {\n    position: absolute;\n    z-index: 1;\n    padding: pxToRem(15) pxToRem(25);\n    font-size: pxToRem(16);\n    line-height: pxToRem(20);\n  }\n}",".results {\n  margin: 0 pxToRem(6);\n  padding: pxToRem(56) pxToRem(32) pxToRem(54);\n  background-color: $baseGrayBackground; \n  display: none;\n  border-radius: 0 0 $baseBorderRadius $baseBorderRadius;\n\n  @include breakpoint(medium) {\n    padding: pxToRem(56) pxToRem(32) pxToRem(47);\n    margin: pxToRem(40) 0 0;\n    display: block;\n    border-radius: 0 $baseBorderRadius $baseBorderRadius 0;\n  }\n\n  &--active {\n    display: block;\n\n    .results__price {\n      color: $baseBlack;\n    }\n  }\n\n  &__title {\n    margin: 0 0 pxToRem(24);\n  }\n\n  &--title-main {\n    margin: 0 0 pxToRem(24);\n  }\n\n  &__price {\n    margin: 0;\n    font-size: pxToRem(16);\n    line-height: pxToRem(20);\n    text-align: right;\n\n    @include breakpoint(medium) {\n      font-size: pxToRem(24);\n      line-height: pxToRem(38);\n      margin: 0 0 pxToRem(16);\n      color: $baseGrayBorder;\n      text-align: left;\n    }\n  }\n\n  &--price-last {\n    margin: 0;\n  }\n\n  &--price-wrapper {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    padding: pxToRem(25) 0 pxToRem(12);\n    border-bottom: $baseBorderGrayHr; \n\n    @include breakpoint(medium) {\n      display: block;\n      padding: 0;\n      border: none; \n    }\n  }\n\n  &--price-wrapper-first {\n    padding: 0 0 pxToRem(12);\n\n    @include breakpoint(medium) {\n      padding: 0;\n    }\n  }\n\n  &__medium-title {\n    margin: 0;\n    font-family: $helvetica;\n    font-size: pxToRem(13);\n    line-height: pxToRem(19);\n    color: $baseBlackLighter;\n\n    @include breakpoint(medium) {\n      margin: 0 0 pxToRem(8);\n      font-size: pxToRem(20);\n      line-height: pxToRem(30);\n    }\n  }\n\n  &__small-title {\n    margin: 0;\n    color: $baseBlackLighter;\n    font-family: $helvetica;\n    font-size: pxToRem(13);\n    line-height: pxToRem(19);\n\n    @include breakpoint(medium) {\n      line-height: pxToRem(28);\n      margin: 0 0 pxToRem(8);\n    }\n  }\n\n  &__hr {\n    display: none;\n    margin: 0 0 pxToRem(24);\n\n    @include breakpoint(medium) {\n      display: block;\n    }\n  }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -148,6 +358,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Graphik
   \*****************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -259,6 +470,7 @@ module.exports = function (cssWithMappingToString) {
   \********************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (url, options) {
@@ -297,6 +509,7 @@ module.exports = function (url, options) {
   \************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (item) {
@@ -328,6 +541,7 @@ module.exports = function (item) {
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -382,6 +596,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -495,6 +710,7 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -543,6 +759,7 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -563,6 +780,7 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -584,6 +802,7 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -663,6 +882,7 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -688,6 +908,7 @@ module.exports = styleTagTransform;
   \***********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "840ddb2af0b18113d6ef.woff2";
 
 /***/ }),
@@ -698,6 +919,7 @@ module.exports = __webpack_require__.p + "840ddb2af0b18113d6ef.woff2";
   \*******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "5f9d937264cebf83392a.woff2";
 
 /***/ })
@@ -805,27 +1027,25 @@ module.exports = __webpack_require__.p + "5f9d937264cebf83392a.woff2";
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./src/scss/main.scss");
-/* harmony import */ var _calculate_mortgage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./calculate-mortgage */ "./src/js/calculate-mortgage.js");
+/* harmony import */ var _handle_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handle-form */ "./src/js/handle-form.js");
+/* harmony import */ var _form_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-slider */ "./src/js/form-slider.js");
+/* harmony import */ var _form_slider__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_form_slider__WEBPACK_IMPORTED_MODULE_2__);
 /* Load main CSS. */
- // Main JavaScript
 
-const short = function longUniqueMoreDescriptiveLexicalFoo() {// ...
-};
+/* Import form handler. */
 
 
+/* Import form slider. */
 
-let _calc = new _calculate_mortgage__WEBPACK_IMPORTED_MODULE_1__["default"]();
 
-console.log(_calc.calculateAllNumbers());
-_calc.annualTax = 200;
-console.log(_calc.calculateAllNumbers());
 })();
 
 /******/ })()

@@ -3,12 +3,18 @@
   box-shadow: $baseBorderShadow;
 
   &__h1 {
-    padding: pxToRem(17) pxToRem(17);
+    padding: pxToRem(15.5) pxToRem(17);
     margin: auto;
     max-width: pxToRem($container-max-width);
     font-family: $publico;
     font-weight: 400;
-    font-size: pxToRem(31.25);
-    line-height: 1;
+    font-size: pxToRem(20);
+    line-height: pxToRem(25);
+
+    @include breakpoint(medium) {
+      padding: pxToRem(12.5) pxToRem(17);
+      font-size: pxToRem(31);
+      line-height: pxToRem(39);
+    }
   }
 }
