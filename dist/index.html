@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Mortgage Calculator</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,45 +13,99 @@
 </head>
 
 <body>
-  <header class="container">
-    <h1 class="h1">Mortgage Calculator</h1>
+  <header class="header">
+    <h1 class="header__h1">Mortgage Calculator</h1>
   </header>
 
-  <section class="container">
+  <section class="calculator-wrapper">
     <form class="calculator">
       <fieldset>
-        <legend>Change values to calculate your results</legend>
+        <legend class="calculator__title">Change values to calculate your results</legend>
         <hr>
-        <label for="years">Years of mortgage</label>
-        <input class="calculator__input calculator__input-years" type="number" id="years" name="years" min="1" max="40" value="30">
+        <label for="years" class="calculator__label">Years of mortgage</label>
+        <div class="range-input-group">
+          <div class="range">
+            <span class="range__scale">
+              1
+            </span>
+            <input class="range__slider range__years" type="range" min="1" max="40" aria-hidden="true" data-target=".calculator__input-years">
+            <span class="range__scale">
+              40
+            </span>
+          </div>
+          <input class="calculator__input calculator__input-years" type="number" id="years" name="years" min="1" max="40" data-target=".range__years">
+          <div class="calculator__invalid-message">Mandatory field</div>
+        </div>
 
-        <label for="interest">Rate of interest (%)</label>
-        <input class="calculator__input calculator__input-interest" type="number" id="interest" name="interest" min="0.1" max="10" step="0.1" value="8.0">
+        <label for="interest" class="calculator__label">Rate of interest (%)</label>
+        <div class="range-input-group">
+          <div class="range">
+            <span class="range__scale">
+              0.1
+            </span>
+            <input class="range__slider range__interest" type="range" id="interest" name="interest" min="0.1" max="10" step="0.1" data-target=".calculator__input-interest" aria-hidden="true">
+            <span class="range__scale">
+              10
+            </span>
+          </div>
+          <input class="calculator__input calculator__input-interest" type="number" id="interest" name="interest" min="0.1" max="10" step="0.1" data-target=".range__interest">
+          <div class="calculator__invalid-message">Mandatory field</div>
+        </div>
 
-        <label for="amount">Loan Amount</label>
-        $<input class="calculator__input calculator__input-amount" type="number" id="amount" name="amount" value="100000">
+        <div class="loan-amount-wrapper">
+          <label for="amount" class="calculator__label">Loan Amount</label>
+          <div>
+            <span class="calculator__input-cost">$</span>
+            <input class="calculator__input calculator__input-amount calculator__input--with-cost" type="number" id="amount" name="amount">
+            <div class="calculator__invalid-message">Mandatory field</div>
+          </div>
+        </div>
 
-        <label for="tax">Annual Tax</label>
-        $<input class="calculator__input calculator__input-tax" type="number" id="tax" name="tax" value="1000">
+        <div class="double-input-group">
+          <div>
+            <label for="tax" class="calculator__label">Annual Tax</label>
+            <div>
+              <span class="calculator__input-cost">$</span>
+              <input class="calculator__input calculator__input-tax calculator__input--with-cost" type="number" id="tax" name="tax">
+              <div class="calculator__invalid-message">Mandatory field</div>
+            </div>
+          </div>
 
-        <label for="insurance">Annual Insurance</label>
-        $<input class="calculator__input calculator__input-insurance" type="number" id="insurance" name="insurance" value="300">
+          <div>
+            <label for="insurance" class="calculator__label">Annual Insurance</label>
+            <div>
+              <span class="calculator__input-cost">$</span>
+              <input class="calculator__input calculator__input-insurance calculator__input--with-cost" type="number" id="insurance" name="insurance">
+              <div class="calculator__invalid-message">Mandatory field</div>
+            </div>
+          </div>
+        </div>
 
-        <input class="calculator__button" type="submit" value="Calculator">
+        <input class="button" type="submit" value="Calculate">
       </fieldset>
     </form>
 
-    <aside class="results">
-      <h2 class="results__title">Your results</h2>
-      <p class="results__small-title">Principal & Interest</p>
-      <p class="results__title results--inactive results__title-principal">$ - -</p>
-      <p class="results__small-title">Tax</p>
-      <p class="results__title results--inactive results__title-tax">$ - -</p>
-      <p class="results__small-title">Insurance</p>
-      <p class="results__title results--inactive results__title-insurance">$ - -</p>
-      <hr>
-      <p class="results__medium-title">Total Monthly Payment</p>
-      <p class="results__title results__title-total">$ - -</p>
+    <aside>
+      <div class="results" id="results">
+        <h2 class="results__title results--title-main">Your results</h2>
+        <div class="results--price-wrapper results--price-wrapper-first">
+          <p class="results__small-title">Principal & Interest</p>
+          <p class="results__price results__price-principal">$ - -</p>
+        </div>
+        <div class="results--price-wrapper">
+          <p class="results__small-title">Tax</p>
+          <p class="results__price results__price-tax">$ - -</p>
+        </div>
+        <div class="results--price-wrapper">
+          <p class="results__small-title">Insurance</p>
+          <p class="results__price results__price-insurance">$ - -</p>
+          <hr class="results__hr">
+        </div>
+        <div class="results--price-wrapper">
+          <p class="results__medium-title">Total Monthly Payment</p>
+          <p class="results__price results__price-total results--price-last">$ - -</p>
+        </div>
+      </div>
     </aside>
   </section>
 

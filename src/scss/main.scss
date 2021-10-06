@@ -1,7 +1,5 @@
-// Normalize CSS
-@import "node_modules/normalize-scss/sass/normalize";
-
 // Utilities
+@import 'utilities/settings';
 @import 'utilities/px-to-rem';
 @import 'utilities/breakpoints';
 
@@ -10,5 +8,12 @@
 @import 'base/typography';
 @import 'base/borders';
 
+// Layout
+@import 'layout/general';
+@import 'layout/header';
+@import 'layout/form';
+
 // Modules
 @import 'modules/buttons';
+@import 'modules/calculator';
+@import 'modules/results';

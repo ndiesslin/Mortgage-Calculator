@@ -1,0 +1,26 @@
+// Resets
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+hr {
+  margin: 0 0 pxToRem(16);
+  border: none;
+  border-bottom: $baseBorderGrayHr;
+  width: calc(100% + pxToRem(32));
+  margin-left: - pxToRem(16);
+
+  @include breakpoint(medium) {
+    width: 100%;
+    margin: 0 0 pxToRem(36);
+    margin-left: 0;
+  }
+}

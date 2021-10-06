@@ -14,10 +14,3 @@
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
-
-// Grid breakpoints
-$breakpoints: (
-  'small':  576px,
-  'medium': 768px,
-  'large':  1200px
-) !default;

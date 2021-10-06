@@ -38,14 +38,13 @@ class calculateMortgage {
       calculatedInsurance
     );
 
-    // @todo add notes
-    /* @returns @type string of tax calculation. */
+    /* @returns @object of mortgage calculation. */
     return {
       principalAndInterest: calculatedPrincipalAndInterest,
       tax: calculatedTax,
       insurance: calculatedInsurance,
       monthlyPayment: calculatedMonthlyPayment
-    }
+    };
   }
 
   /**
