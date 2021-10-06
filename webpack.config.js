@@ -7,8 +7,7 @@ module.exports = {
   entry: './src/js/main.js',
   output: {
     path: BUILD_DIR,
-    filename: './js/main.js',
-    publicPath: '/',
+    filename: './js/main.js'
   },
   mode: 'development',
   devtool: 'source-map',
