@@ -1,17 +1,3 @@
-.calculator-wrapper {
-  display: grid;
-  padding: 0 pxToRem(17) pxToRem(17);
-  margin: auto;
-  max-width: pxToRem($container-max-width);
-  grid-template-columns: 100%;
-
-  @include breakpoint(medium) {
-    grid-template-columns: minmax(min-content, 667px) auto;
-  }
-}
-
-// Break inputs into smaller objects
-
 .calculator {
   padding: pxToRem(16) pxToRem(16) pxToRem(36);
   box-shadow: $baseBorderShadow;
@@ -22,74 +8,12 @@
     padding: pxToRem(24) pxToRem(24) pxToRem(34);
     border-radius: $baseBorderRadius;
   }
+}
 
-  &__title {
-    margin: 0 0 pxToRem(16);
-    font-family: $helvetica;
-    font-size: pxToRem(15);
-    font-weight: 400;
-    line-height: pxToRem(24);
-  }
-
-  &__label {
-    display: block;
-    margin: 0 0 pxToRem(8);
-    color: $baseBlackLight;
-    font-size: pxToRem(14);
-    font-weight: 400;
-    line-height: pxToRem(24);
-  }
-
-  &__input {
-    position: relative;
-    border: $baseBorderGray;
-    border-radius: $baseBorderRadius;
-    padding: pxToRem(14) pxToRem(24);
-    color: $baseBlack;
-    font-size: pxToRem(16);
-    line-height: pxToRem(20);
-    width: 100%;
-
-    &:focus {
-      outline: none;
-      border: $baseBorderPrimaryBlue;
-      box-shadow: $baseBorderShadow;
-    }
-
-    &--with-cost {
-      padding: pxToRem(14) pxToRem(24) pxToRem(14) pxToRem(37);
-    }
-  }
-
-  &__invalid-message {
-    display: none;
-  }
-
-  &--invalid { 
-    .calculator__input {
-      margin: 0 0 pxToRem(8);
-      border: $baseBorderTertiaryRed;
-    }
-
-    .calculator__invalid-message {
-      display: block;
-      font-size: pxToRem(13);
-      color: $tertiaryRed;
-    }
-  }
-
-  &__input-years, 
-  &__input-interest {
-    // Add space for number increments when centered.
-    padding-right: 10px;
-    text-align: center;
-  }
-
-  &__input-cost {
-    position: absolute;
-    z-index: 1;
-    padding: pxToRem(15) pxToRem(25);
-    font-size: pxToRem(16);
-    line-height: pxToRem(20);
-  }
+.calculator-title {
+  margin: 0 0 pxToRem(16);
+  font-family: $helvetica;
+  font-size: pxToRem(15);
+  font-weight: 400;
+  line-height: pxToRem(24);
 }

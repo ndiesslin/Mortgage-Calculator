@@ -1,10 +1,8 @@
-// Break into smaller modules, modifiers don't make sense
-
 .results {
   margin: 0 pxToRem(6);
   padding: pxToRem(56) pxToRem(32) pxToRem(54);
   background-color: $baseGrayBackground; 
-  display: none;
+  display: none; // Hide on mobile until form entry.
   border-radius: 0 0 $baseBorderRadius $baseBorderRadius;
 
   @include breakpoint(medium) {
@@ -17,56 +15,65 @@
   &--active {
     display: block;
 
-    .results__price {
+    .price__amount {
       color: $baseBlack;
     }
   }
+}
+
+.result-title {
+  margin: 0 0 pxToRem(24);
+}
+
+.price {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: pxToRem(25) 0 pxToRem(12);
+  border-bottom: $baseBorderGrayHr; 
+
+  @include breakpoint(medium) {
+    display: block;
+    padding: 0;
+    border: none; 
+  }
+
+  &--first {
+    padding: 0 0 pxToRem(12);
+  
+    @include breakpoint(medium) {
+      padding: 0;
+    }
+  }
+
+  &--last .price__amount {
+    margin: 0;
+  }
 
   &__title {
-    margin: 0 0 pxToRem(24);
+    margin: 0;
+    color: $baseBlackLighter;
+    font-family: $helvetica;
+    font-size: pxToRem(13);
+    line-height: pxToRem(19);
+
+    @include breakpoint(medium) {
+      line-height: pxToRem(28);
+      margin: 0 0 pxToRem(8);
+    }
   }
 
-  &--title-main {
-    margin: 0 0 pxToRem(24);
-  }
-
-  &__price {
+  &__amount {
     margin: 0;
     font-size: pxToRem(16);
     line-height: pxToRem(20);
     text-align: right;
-
+  
     @include breakpoint(medium) {
       font-size: pxToRem(24);
       line-height: pxToRem(38);
       margin: 0 0 pxToRem(16);
       color: $baseGrayBorder;
       text-align: left;
-    }
-  }
-
-  &--price-last {
-    margin: 0;
-  }
-
-  &--price-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: pxToRem(25) 0 pxToRem(12);
-    border-bottom: $baseBorderGrayHr; 
-
-    @include breakpoint(medium) {
-      display: block;
-      padding: 0;
-      border: none; 
-    }
-  }
-
-  &--price-wrapper-first {
-    padding: 0 0 pxToRem(12);
-
-    @include breakpoint(medium) {
-      padding: 0;
     }
   }
 
@@ -81,28 +88,6 @@
       margin: 0 0 pxToRem(8);
       font-size: pxToRem(20);
       line-height: pxToRem(30);
-    }
-  }
-
-  &__small-title {
-    margin: 0;
-    color: $baseBlackLighter;
-    font-family: $helvetica;
-    font-size: pxToRem(13);
-    line-height: pxToRem(19);
-
-    @include breakpoint(medium) {
-      line-height: pxToRem(28);
-      margin: 0 0 pxToRem(8);
-    }
-  }
-
-  &__hr {
-    display: none;
-    margin: 0 0 pxToRem(24);
-
-    @include breakpoint(medium) {
-      display: block;
     }
   }
 }

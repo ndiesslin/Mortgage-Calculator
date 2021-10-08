@@ -7,10 +7,10 @@ const defaultAnnualInsurance = 300;
 
 /**
  * Mortgage calculation.
- * @namespace calculateMortgage
+ * @namespace CalculateMortgage
  * @class
  */
-class calculateMortgage {
+class CalculateMortgage {
   /* Get values for constructor. */
   constructor() {
     this.yearsOfMortgage = defaultYearsOfMortgage;
@@ -22,7 +22,7 @@ class calculateMortgage {
 
   /**
    * @function calculateAllNumbers
-   * @memberof calculateMortgage
+   * @memberof CalculateMortgage
    */
   calculateAllNumbers() {
     let calculatedPrincipalAndInterest = this.constructor.principalAndInterest(
@@ -49,7 +49,7 @@ class calculateMortgage {
 
   /**
    * @function principalAndInterest
-   * @memberof calculateMortgage
+   * @memberof CalculateMortgage
    * @static
    */
   static principalAndInterest(interestRate, loanAmount, yearsOfMortgage) {
@@ -66,7 +66,7 @@ class calculateMortgage {
 
   /**
    * @function calculateTax
-   * @memberof calculateMortgage
+   * @memberof CalculateMortgage
    * @static
    */
   static calculateTax(annualTax) {
@@ -79,7 +79,7 @@ class calculateMortgage {
 
   /**
    * @function calculateInsurance
-   * @memberof calculateMortgage
+   * @memberof CalculateMortgage
    * @static
    */
   static calculateInsurance(annualInsurance) {
@@ -92,7 +92,7 @@ class calculateMortgage {
 
   /**
    * @function calculateMonthlyPayment
-   * @memberof calculateMortgage
+   * @memberof CalculateMortgage
    * @static
    */
   static calculateMonthlyPayment(principleAndInterests, tax, insurance) {
@@ -110,4 +110,4 @@ class calculateMortgage {
 }
 
 /* Export class from calculator to be used elsewhere. */
-export default calculateMortgage;
+export default CalculateMortgage;

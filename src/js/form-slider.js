@@ -21,7 +21,7 @@ document.querySelectorAll('.range__slider').forEach( (slider) => {
 });
 
 /* Get and set input value to slider. */
-document.querySelectorAll('.range-input-group .calculator__input').forEach( (sliderInput) => {
+document.querySelectorAll('.range-input-group .input').forEach( (sliderInput) => {
   sliderInput.addEventListener('input', (event) => {
     const slider = event.target;
     const value = slider.value;

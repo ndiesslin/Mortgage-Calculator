@@ -1,4 +1,4 @@
-/// Mixin to manage responsive breakpoints
+// Mixin to manage responsive breakpoints
 @mixin breakpoint($breakpoint) {
   // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {

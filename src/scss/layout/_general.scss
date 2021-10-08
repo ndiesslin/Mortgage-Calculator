@@ -11,7 +11,7 @@ fieldset {
   border: 0;
 }
 
-hr {
+.hr {
   margin: 0 0 pxToRem(16);
   border: none;
   border-bottom: $baseBorderGrayHr;
@@ -22,6 +22,15 @@ hr {
     width: 100%;
     margin: 0 0 pxToRem(36);
     margin-left: 0;
+  }
+
+  &--results {
+    display: none;
+    margin: 0 0 pxToRem(24);
+  
+    @include breakpoint(medium) {
+      display: block;
+    }
   }
 }
 

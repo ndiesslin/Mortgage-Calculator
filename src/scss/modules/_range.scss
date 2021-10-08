@@ -1,0 +1,67 @@
+.range-input-group {
+  display: grid;
+  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);
+  column-gap: 16px;
+  margin: 0 0 pxToRem(30);
+}
+
+.range {
+  display: grid;
+  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);
+  align-items: center;
+
+  &__slider {
+    margin: 0 pxToRem(16);
+    -webkit-appearance: none;
+    height: pxToRem(8);
+    background: $primaryBlueDarkest;
+    outline: none;
+    border-radius: $baseBorderRadius;
+
+    @include breakpoint(medium) {
+      height: pxToRem(16);
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: pxToRem(24);
+      height: pxToRem(24);
+      background: $white;
+      cursor: pointer;
+      box-shadow: $baseBorderShadow;
+      border-radius: 50%;
+
+      @include breakpoint(medium) {
+        width: pxToRem(36);
+        height: pxToRem(36);
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: pxToRem(24);
+      height: pxToRem(24);
+      background: $white;
+      cursor: pointer;
+      box-shadow: $baseBorderShadow;
+      border-radius: 50%;
+
+      @include breakpoint(medium) {
+        width: pxToRem(36);
+        height: pxToRem(36);
+      }
+    }
+  }
+
+  &__scale {
+    font-family: $helvetica;
+    font-size: pxToRem(15);
+    line-height: pxToRem(24);
+
+    @include breakpoint(medium) {
+      font-family: $graphik;
+      font-size: pxToRem(20);
+      line-height: pxToRem(30);
+    }
+  }
+}

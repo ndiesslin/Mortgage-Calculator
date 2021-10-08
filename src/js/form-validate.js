@@ -1,12 +1,12 @@
 /* Set inputs to validate. */
-const inputsToValidate = document.querySelectorAll('.calculator__input');
+const inputsToValidate = document.querySelectorAll('.input');
 
 /**
  * Form Validation.
- * @namespace formValidate
+ * @namespace FormValidate
  * @class
  */
-class formValidate {
+class FormValidate {
   /* Get values for constructor. */
   constructor() {
     this.inputsToValidate = inputsToValidate;
@@ -14,7 +14,7 @@ class formValidate {
 
   /**
    * @function valid
-   * @memberof formValidate
+   * @memberof FormValidate
    */
   valid() {
     let valid = this.constructor.validateInputs(this.inputsToValidate);
@@ -25,7 +25,7 @@ class formValidate {
 
   /**
    * @function validateInputs
-   * @memberof formValidate
+   * @memberof FormValidate
    * @static
    */
   static validateInputs(inputs) {
@@ -33,9 +33,9 @@ class formValidate {
 
     inputs.forEach( (input) => {
       if (input.value) {
-        input.parentNode.classList.remove('calculator--invalid');
+        input.parentNode.classList.remove('invalid');
       } else {
-        input.parentNode.classList.add('calculator--invalid');
+        input.parentNode.classList.add('invalid');
         valid = false;
       }
     });
@@ -46,4 +46,4 @@ class formValidate {
 }
 
 /* Export class from calculator to be used elsewhere. */
-export default formValidate;
+export default FormValidate;

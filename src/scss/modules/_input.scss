@@ -1,0 +1,84 @@
+.label {
+  display: block;
+  margin: 0 0 pxToRem(8);
+  color: $baseBlackLight;
+  font-size: pxToRem(14);
+  font-weight: 400;
+  line-height: pxToRem(24);
+
+  &--shorten {
+    margin: 0 0 pxToRem(-6);
+
+    @include breakpoint(medium) {
+      margin: 0 0 pxToRem(8);
+    }
+  }
+}
+
+.input {
+  position: relative;
+  border: $baseBorderGray;
+  border-radius: $baseBorderRadius;
+  padding: pxToRem(14) pxToRem(24);
+  color: $baseBlack;
+  font-size: pxToRem(16);
+  line-height: pxToRem(20);
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: $baseBorderPrimaryBlue;
+    box-shadow: $baseBorderShadow;
+  }
+
+  &--with-cost {
+    padding: pxToRem(14) pxToRem(24) pxToRem(14) pxToRem(37);
+  }
+
+  &--years, 
+  &--interest {
+    // Add space for number increments when centered.
+    padding-right: 10px;
+    text-align: center;
+  }
+}
+
+.invalid-message {
+  display: none;
+  font-size: pxToRem(13);
+  color: $tertiaryRed;
+}
+
+.invalid { 
+  .input {
+    margin: 0 0 pxToRem(8);
+    border: $baseBorderTertiaryRed;
+  }
+
+  .invalid-message {
+    display: block;
+  }
+}
+
+.input-cost {
+  position: absolute;
+  z-index: 1;
+  padding: pxToRem(15) pxToRem(25);
+  font-size: pxToRem(16);
+  line-height: pxToRem(20);
+}
+
+.double-input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  margin: 0 0 pxToRem(36);
+
+  @include breakpoint(medium) {
+    column-gap: 24px;
+  }
+}
+
+.loan-amount-wrapper {
+  margin: 0 0 pxToRem(21);
+}
