@@ -3,7 +3,7 @@
 __Summary:__ The purpose of this document is to define how to use this project and the requirements of the mortgage calculator code challenge.
 
 ## How to access project files:
-- All of the files in the `dist` folder are the contents from the development output.
+- All of the files in the `dist` folder are the contents from the development output. [This is a link to the final html.](./dist/index.html)
 - In the `src` folder are the contents for the project source files.
 
 ## How to Run This Project:
