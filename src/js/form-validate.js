@@ -31,19 +31,19 @@ class FormValidate {
   static validateInputs(inputs) {
     let valid = true;
 
-    inputs.forEach( (input) => {
+    for (let input of inputs) {
       if (input.value) {
         input.parentNode.classList.remove('invalid');
       } else {
         input.parentNode.classList.add('invalid');
         valid = false;
       }
-    });
+    };
 
     /* @returns @type boolean of valid or not. */
     return valid;
   }
 }
 
-/* Export class from calculator to be used elsewhere. */
+/* Export class from validator to be used elsewhere. */
 export default FormValidate;

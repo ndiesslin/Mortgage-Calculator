@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/calculate-mortgage.js":
@@ -7,7 +8,6 @@
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -26,14 +26,14 @@ var defaultTax = 1000;
 var defaultAnnualInsurance = 300;
 /**
  * Mortgage calculation.
- * @namespace calculateMortgage
+ * @namespace CalculateMortgage
  * @class
  */
 
-var calculateMortgage = /*#__PURE__*/function () {
+var CalculateMortgage = /*#__PURE__*/function () {
   /* Get values for constructor. */
-  function calculateMortgage() {
-    _classCallCheck(this, calculateMortgage);
+  function CalculateMortgage() {
+    _classCallCheck(this, CalculateMortgage);
 
     this.yearsOfMortgage = defaultYearsOfMortgage;
     this.interestRate = defaultInterestRate;
@@ -43,11 +43,11 @@ var calculateMortgage = /*#__PURE__*/function () {
   }
   /**
    * @function calculateAllNumbers
-   * @memberof calculateMortgage
+   * @memberof CalculateMortgage
    */
 
 
-  _createClass(calculateMortgage, [{
+  _createClass(CalculateMortgage, [{
     key: "calculateAllNumbers",
     value: function calculateAllNumbers() {
       var calculatedPrincipalAndInterest = this.constructor.principalAndInterest(this.interestRate, this.loanAmount, this.yearsOfMortgage);
@@ -65,7 +65,7 @@ var calculateMortgage = /*#__PURE__*/function () {
     }
     /**
      * @function principalAndInterest
-     * @memberof calculateMortgage
+     * @memberof CalculateMortgage
      * @static
      */
 
@@ -80,7 +80,7 @@ var calculateMortgage = /*#__PURE__*/function () {
     }
     /**
      * @function calculateTax
-     * @memberof calculateMortgage
+     * @memberof CalculateMortgage
      * @static
      */
 
@@ -95,7 +95,7 @@ var calculateMortgage = /*#__PURE__*/function () {
     }
     /**
      * @function calculateInsurance
-     * @memberof calculateMortgage
+     * @memberof CalculateMortgage
      * @static
      */
 
@@ -110,7 +110,7 @@ var calculateMortgage = /*#__PURE__*/function () {
     }
     /**
      * @function calculateMonthlyPayment
-     * @memberof calculateMortgage
+     * @memberof CalculateMortgage
      * @static
      */
 
@@ -125,12 +125,12 @@ var calculateMortgage = /*#__PURE__*/function () {
     }
   }]);
 
-  return calculateMortgage;
+  return CalculateMortgage;
 }();
 /* Export class from calculator to be used elsewhere. */
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calculateMortgage);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CalculateMortgage);
 
 /***/ }),
 
@@ -138,50 +138,8 @@ var calculateMortgage = /*#__PURE__*/function () {
 /*!*******************************!*\
   !*** ./src/js/form-slider.js ***!
   \*******************************/
-/***/ (() => {
-
-/* Get and set slider value to input. */
-document.querySelectorAll('.range__slider').forEach(function (slider) {
-  /* Get min max and value to set slider gradient. */
-  var min = slider.min;
-  var max = slider.max;
-  var value = slider.value;
-  /* Set slider background. */
-
-  slider.style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((value - min) / (max - min) * 100, "%, #DDDDDD ").concat((value - min) / (max - min) * 100, "%, #DDDDDD 100%)");
-  slider.addEventListener('input', function (event) {
-    var slider = event.target;
-    var value = slider.value;
-    var target = slider.dataset.target;
-    document.querySelector(target).value = value;
-    /* Set slider background. */
-
-    event.target.style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD ").concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD 100%)");
-  });
-});
-/* Get and set input value to slider. */
-
-document.querySelectorAll('.range-input-group .input').forEach(function (sliderInput) {
-  sliderInput.addEventListener('input', function (event) {
-    var slider = event.target;
-    var value = slider.value;
-    var target = slider.dataset.target;
-    document.querySelector(target).value = value;
-    /* Set slider background. */
-
-    document.querySelector(target).style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD ").concat((slider.value - slider.min) / (slider.max - slider.min) * 100, "%, #DDDDDD 100%)");
-  });
-});
-
-/***/ }),
-
-/***/ "./src/js/form-validate.js":
-/*!*********************************!*\
-  !*** ./src/js/form-validate.js ***!
-  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -192,28 +150,158 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+/**
+ * Form slider.
+ * @namespace FormSlider
+ * @class
+ */
+var FormSlider = /*#__PURE__*/function () {
+  /* Get values for constructor. */
+  function FormSlider() {
+    _classCallCheck(this, FormSlider);
+
+    this.rangeInputGroup = '';
+  }
+  /**
+   * @function processSlider 
+   * @memberof FormSilder
+   */
+
+
+  _createClass(FormSlider, [{
+    key: "processSlider",
+    value: function processSlider() {
+      var slider = this.rangeInputGroup.getElementsByClassName('range__slider')[0];
+      var input = this.rangeInputGroup.getElementsByClassName('input')[0];
+      this.constructor.sliderToInput(slider, input);
+      this.constructor.inputToSlider(slider, input);
+    }
+    /* Get and set slider value to input. */
+
+    /**
+     * @function sliderToInput
+     * @memberof FormSlider
+     * @static
+     */
+
+  }], [{
+    key: "sliderToInput",
+    value: function sliderToInput(slider, input) {
+      var _this = this;
+
+      /* Get min max and value to set slider gradient. */
+      var min = slider.min;
+      var max = slider.max;
+      /* Set slider background. */
+
+      this.sliderSetBackground(slider, min, max);
+      /* Add listener for changes. */
+
+      slider.addEventListener('input', function (event) {
+        var slider = event.target;
+        var value = slider.value;
+        input.value = value;
+        /* Set slider background. */
+
+        _this.sliderSetBackground(slider, min, max);
+      });
+    }
+    /* Get and set input value to slider. */
+
+    /**
+     * @function inputToSlider
+     * @memberof FormSlider
+     * @static
+     */
+
+  }, {
+    key: "inputToSlider",
+    value: function inputToSlider(slider, input) {
+      var _this2 = this;
+
+      /* Add listener for changes. */
+      input.addEventListener('input', function (event) {
+        var input = event.target;
+        var value = input.value;
+        var min = slider.min;
+        var max = slider.max;
+        /* Set Slider value. */
+
+        slider.value = value;
+        /* Set slider background. */
+
+        _this2.sliderSetBackground(slider, min, max);
+      });
+    }
+    /* Visually set background of slider. */
+
+    /**
+     * @function sliderSetBackground
+     * @memberof FormSlider
+     * @static
+     */
+
+  }, {
+    key: "sliderSetBackground",
+    value: function sliderSetBackground(slider, min, max) {
+      var value = slider.value;
+      slider.style.background = "linear-gradient(to right, #1B3979 0%, #1B3979 ".concat((value - min) / (max - min) * 100, "%, #DDDDDD ").concat((value - min) / (max - min) * 100, "%, #DDDDDD 100%)");
+    }
+  }]);
+
+  return FormSlider;
+}();
+/* Export class from slider to be used elsewhere. */
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormSlider);
+
+/***/ }),
+
+/***/ "./src/js/form-validate.js":
+/*!*********************************!*\
+  !*** ./src/js/form-validate.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 /* Set inputs to validate. */
 var inputsToValidate = document.querySelectorAll('.input');
 /**
  * Form Validation.
- * @namespace formValidate
+ * @namespace FormValidate
  * @class
  */
 
-var formValidate = /*#__PURE__*/function () {
+var FormValidate = /*#__PURE__*/function () {
   /* Get values for constructor. */
-  function formValidate() {
-    _classCallCheck(this, formValidate);
+  function FormValidate() {
+    _classCallCheck(this, FormValidate);
 
     this.inputsToValidate = inputsToValidate;
   }
   /**
    * @function valid
-   * @memberof formValidate
+   * @memberof FormValidate
    */
 
 
-  _createClass(formValidate, [{
+  _createClass(FormValidate, [{
     key: "valid",
     value: function valid() {
       var valid = this.constructor.validateInputs(this.inputsToValidate);
@@ -223,7 +311,7 @@ var formValidate = /*#__PURE__*/function () {
     }
     /**
      * @function validateInputs
-     * @memberof formValidate
+     * @memberof FormValidate
      * @static
      */
 
@@ -231,100 +319,149 @@ var formValidate = /*#__PURE__*/function () {
     key: "validateInputs",
     value: function validateInputs(inputs) {
       var valid = true;
-      inputs.forEach(function (input) {
-        if (input.value) {
-          input.parentNode.classList.remove('invalid');
-        } else {
-          input.parentNode.classList.add('invalid');
-          valid = false;
+
+      var _iterator = _createForOfIteratorHelper(inputs),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var input = _step.value;
+
+          if (input.value) {
+            input.parentNode.classList.remove('invalid');
+          } else {
+            input.parentNode.classList.add('invalid');
+            valid = false;
+          }
         }
-      });
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      ;
       /* @returns @type boolean of valid or not. */
 
       return valid;
     }
   }]);
 
-  return formValidate;
+  return FormValidate;
 }();
-/* Export class from calculator to be used elsewhere. */
+/* Export class from validator to be used elsewhere. */
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formValidate);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormValidate);
 
 /***/ }),
 
-/***/ "./src/js/handle-form.js":
-/*!*******************************!*\
-  !*** ./src/js/handle-form.js ***!
-  \*******************************/
+/***/ "./src/js/form-watcher.js":
+/*!********************************!*\
+  !*** ./src/js/form-watcher.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var _calculate_mortgage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calculate-mortgage */ "./src/js/calculate-mortgage.js");
 /* harmony import */ var _form_validate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form-validate */ "./src/js/form-validate.js");
-/* Import calculateMortgage class for calculations. */
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/* Import formValidate class for form validation. */
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/* Import CalculateMortgage class for calculations. */
+
+/* Import FormValidate class for form validation. */
 
 
 /* Create calculate class. */
 
-var _calculate = new _calculate_mortgage__WEBPACK_IMPORTED_MODULE_0__["default"]();
+var calculate = new _calculate_mortgage__WEBPACK_IMPORTED_MODULE_0__["default"]();
 /* Create form validation class. */
 
+var formValidate = new _form_validate__WEBPACK_IMPORTED_MODULE_1__["default"]();
+/**
+ * Form watcher for form changes.
+ * @namespace FormWatcher
+ * @class
+ */
 
-var _formValidate = new _form_validate__WEBPACK_IMPORTED_MODULE_1__["default"]();
-/* When form updates calculate changes. */
+var FormWatcher = /*#__PURE__*/function () {
+  /* Get values for constructor. */
+  function FormWatcher() {
+    _classCallCheck(this, FormWatcher);
 
-
-document.querySelector('.calculator').addEventListener('submit', function (event) {
-  event.preventDefault();
-  /* Get values from the submitted form. */
-
-  var form = event.target;
-  var yearsOfMortgage = form.querySelector('.input--years').value;
-  var interestRate = form.querySelector('.input--interest').value;
-  var loanAmount = form.querySelector('.input--amount').value;
-  var annualTax = form.querySelector('.input--tax').value;
-  var annualInsurance = form.querySelector('.input--insurance').value;
-  /* Validate fields, return if not valid. */
-
-  if (!_formValidate.valid()) {
-    return;
+    this.form = '';
   }
-  /* Calculate initial values. */
+  /**
+   * @function processForm 
+   * @memberof FormWatcher
+   */
 
 
-  _calculate.yearsOfMortgage = yearsOfMortgage;
-  _calculate.interestRate = interestRate;
-  _calculate.loanAmount = loanAmount;
-  _calculate.annualTax = annualTax;
-  _calculate.annualInsurance = annualInsurance;
+  _createClass(FormWatcher, [{
+    key: "processForm",
+    value: function processForm() {
+      /* When form updates calculate changes. */
+      this.form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        /* Get values from the submitted form. */
 
-  var _calculated = _calculate.calculateAllNumbers();
-  /* Set calculated values. */
+        var targetForm = event.target;
+        var yearsOfMortgage = targetForm.getElementsByClassName('input--years')[0].value;
+        var interestRate = targetForm.getElementsByClassName('input--interest')[0].value;
+        var loanAmount = targetForm.getElementsByClassName('input--amount')[0].value;
+        var annualTax = targetForm.getElementsByClassName('input--tax')[0].value;
+        var annualInsurance = targetForm.getElementsByClassName('input--insurance')[0].value;
+        /* Validate fields, return if not valid. */
+
+        formValidate.inputsToValidate = targetForm.getElementsByClassName('input');
+
+        if (!formValidate.valid()) {
+          return;
+        }
+        /* Calculate initial values. */
 
 
-  document.querySelector('.results__price-principal').textContent = '$ ' + _calculated.principalAndInterest;
-  document.querySelector('.results__price-tax').textContent = '$ ' + _calculated.tax;
-  document.querySelector('.results__price-insurance').textContent = '$ ' + _calculated.insurance;
-  document.querySelector('.results__price-total').textContent = '$ ' + _calculated.monthlyPayment;
-  /* Set results as active. */
+        calculate.yearsOfMortgage = yearsOfMortgage;
+        calculate.interestRate = interestRate;
+        calculate.loanAmount = loanAmount;
+        calculate.annualTax = annualTax;
+        calculate.annualInsurance = annualInsurance;
+        var calculated = calculate.calculateAllNumbers();
+        /* Set calculated values. */
 
-  document.querySelector('.results').classList.add('results--active');
-});
+        targetForm.parentNode.getElementsByClassName('price__amount-principal')[0].textContent = '$ ' + calculated.principalAndInterest;
+        targetForm.parentNode.getElementsByClassName('price__amount-tax')[0].textContent = '$ ' + calculated.tax;
+        targetForm.parentNode.getElementsByClassName('price__amount-insurance')[0].textContent = '$ ' + calculated.insurance;
+        targetForm.parentNode.getElementsByClassName('price__amount-total')[0].textContent = '$ ' + calculated.monthlyPayment;
+        /* Set results as active. */
+
+        targetForm.parentNode.getElementsByClassName('results')[0].classList.add('results--active');
+      });
+    }
+  }]);
+
+  return FormWatcher;
+}();
+/* Export class from watcher to be used elsewhere. */
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormWatcher);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/scss/main.scss":
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/scss/main.scss ***!
-  \*****************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss ***!
+  \*********************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -345,7 +482,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Graphik\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\nhr {\n  margin: 0 0 1rem;\n  border: none;\n  border-bottom: solid 1px #DDDDDD;\n  width: calc(100% + 2rem);\n  margin-left: -1rem;\n}\n@media (min-width: 768px) {\n  hr {\n    width: 100%;\n    margin: 0 0 2.25rem;\n    margin-left: 0;\n  }\n}\n\ninput {\n  margin: 0;\n}\n\n.header {\n  margin: 0 0 3rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.header__h1 {\n  padding: 0.96875rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.25rem;\n  line-height: 1.5625rem;\n}\n@media (min-width: 768px) {\n  .header__h1 {\n    padding: 0.78125rem 1.0625rem;\n    font-size: 1.9375rem;\n    line-height: 2.4375rem;\n  }\n}\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 1.875rem;\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 2.25rem;\n}\n@media (min-width: 768px) {\n  .double-input-group {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 1.3125rem;\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n}\n.range__slider {\n  margin: 0 1rem;\n  -webkit-appearance: none;\n  height: 0.5rem;\n  background: #1B3979;\n  outline: none;\n  border-radius: 8px;\n}\n@media (min-width: 768px) {\n  .range__slider {\n    height: 1rem;\n  }\n}\n.range__slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-webkit-slider-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider::-moz-range-thumb {\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-moz-range-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__scale {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  line-height: 1.5rem;\n}\n@media (min-width: 768px) {\n  .range__scale {\n    font-family: \"Graphik\", sans-serif;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.button {\n  display: block;\n  width: 100%;\n  padding: 0.625rem;\n  color: #ffffff;\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n  text-align: center;\n  background-color: #316EEF;\n  border-radius: 8px;\n  border: none;\n}\n.button:hover {\n  cursor: pointer;\n}\n@media (min-width: 768px) {\n  .button {\n    padding: 0.8125rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.calculator-wrapper {\n  display: grid;\n  padding: 0 1.0625rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  grid-template-columns: 100%;\n}\n@media (min-width: 768px) {\n  .calculator-wrapper {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.calculator {\n  padding: 1rem 1rem 2.25rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 0;\n  z-index: 2;\n}\n@media (min-width: 768px) {\n  .calculator {\n    padding: 1.5rem 1.5rem 2.125rem;\n    border-radius: 8px;\n  }\n}\n.calculator__title {\n  margin: 0 0 1rem;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__label {\n  display: block;\n  margin: 0 0 0.5rem;\n  color: #2E2F2F;\n  font-size: 0.875rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__input-years, .calculator__input-interest {\n  padding-right: 10px;\n  text-align: center;\n}\n\n.invalid-message {\n  display: none;\n  font-size: 0.8125rem;\n  color: #D83E00;\n}\n\n.input {\n  position: relative;\n  border: solid 1px #BBBCBC;\n  border-radius: 8px;\n  padding: 0.875rem 1.5rem;\n  color: #000000;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  width: 100%;\n}\n.input:focus {\n  outline: none;\n  border: solid 1px #316EEF;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.input--with-cost {\n  padding: 0.875rem 1.5rem 0.875rem 2.3125rem;\n}\n\n.invalid .input {\n  margin: 0 0 0.5rem;\n  border: solid 1px #D83E00;\n}\n.invalid .invalid-message {\n  display: block;\n}\n\n.input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: 0.9375rem 1.5625rem;\n  font-size: 1rem;\n  line-height: 1.25rem;\n}\n\n.results {\n  margin: 0 0.375rem;\n  padding: 3.5rem 2rem 3.375rem;\n  background-color: #FBFBFB;\n  display: none;\n  border-radius: 0 0 8px 8px;\n}\n@media (min-width: 768px) {\n  .results {\n    padding: 3.5rem 2rem 2.9375rem;\n    margin: 2.5rem 0 0;\n    display: block;\n    border-radius: 0 8px 8px 0;\n  }\n}\n.results--active {\n  display: block;\n}\n.results--active .results__price {\n  color: #000000;\n}\n.results__title {\n  margin: 0 0 1.5rem;\n}\n.results--title-main {\n  margin: 0 0 1.5rem;\n}\n.results__price {\n  margin: 0;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  text-align: right;\n}\n@media (min-width: 768px) {\n  .results__price {\n    font-size: 1.5rem;\n    line-height: 2.375rem;\n    margin: 0 0 1rem;\n    color: #BBBCBC;\n    text-align: left;\n  }\n}\n.results--price-last {\n  margin: 0;\n}\n.results--price-wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: 1.5625rem 0 0.75rem;\n  border-bottom: solid 1px #DDDDDD;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper {\n    display: block;\n    padding: 0;\n    border: none;\n  }\n}\n.results--price-wrapper-first {\n  padding: 0 0 0.75rem;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper-first {\n    padding: 0;\n  }\n}\n.results__medium-title {\n  margin: 0;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n  color: #5D5D5D;\n}\n@media (min-width: 768px) {\n  .results__medium-title {\n    margin: 0 0 0.5rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n.results__small-title {\n  margin: 0;\n  color: #5D5D5D;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n}\n@media (min-width: 768px) {\n  .results__small-title {\n    line-height: 1.75rem;\n    margin: 0 0 0.5rem;\n  }\n}\n.results__hr {\n  display: none;\n  margin: 0 0 1.5rem;\n}\n@media (min-width: 768px) {\n  .results__hr {\n    display: block;\n  }\n}", "",{"version":3,"sources":["webpack://./src/scss/base/_typography.scss","webpack://./src/scss/main.scss","webpack://./src/scss/layout/_general.scss","webpack://./src/scss/base/_borders.scss","webpack://./src/scss/utilities/_breakpoints.scss","webpack://./src/scss/layout/_header.scss","webpack://./src/scss/layout/_form.scss","webpack://./src/scss/base/_colors.scss","webpack://./src/scss/modules/_buttons.scss","webpack://./src/scss/modules/_calculator.scss","webpack://./src/scss/modules/_results.scss"],"names":[],"mappings":"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","sourcesContent":["// Fonts\n$helvetica: 'Helvetica Neue', sans-serif;\n\n@font-face {\n  font-family: 'Graphik';\n  src: url(../assets/fonts/Graphik-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$graphik: 'Graphik', sans-serif;\n\n@font-face {\n  font-family: 'Publico';\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$publico: 'Publico', sans-serif;\n\n// Base Typography settings\nhtml, body {\n  font-family: $graphik;\n  font-weight: 400;\n  font-size: 16px;\n}","@font-face {\n  font-family: \"Graphik\";\n  src: url(../assets/fonts/Graphik-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\nhr {\n  margin: 0 0 1rem;\n  border: none;\n  border-bottom: solid 1px #DDDDDD;\n  width: calc(100% + 2rem);\n  margin-left: -1rem;\n}\n@media (min-width: 768px) {\n  hr {\n    width: 100%;\n    margin: 0 0 2.25rem;\n    margin-left: 0;\n  }\n}\n\ninput {\n  margin: 0;\n}\n\n.header {\n  margin: 0 0 3rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.header__h1 {\n  padding: 0.96875rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.25rem;\n  line-height: 1.5625rem;\n}\n@media (min-width: 768px) {\n  .header__h1 {\n    padding: 0.78125rem 1.0625rem;\n    font-size: 1.9375rem;\n    line-height: 2.4375rem;\n  }\n}\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 1.875rem;\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 2.25rem;\n}\n@media (min-width: 768px) {\n  .double-input-group {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 1.3125rem;\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n}\n.range__slider {\n  margin: 0 1rem;\n  -webkit-appearance: none;\n  height: 0.5rem;\n  background: #1B3979;\n  outline: none;\n  border-radius: 8px;\n}\n@media (min-width: 768px) {\n  .range__slider {\n    height: 1rem;\n  }\n}\n.range__slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-webkit-slider-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider::-moz-range-thumb {\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-moz-range-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__scale {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  line-height: 1.5rem;\n}\n@media (min-width: 768px) {\n  .range__scale {\n    font-family: \"Graphik\", sans-serif;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.button {\n  display: block;\n  width: 100%;\n  padding: 0.625rem;\n  color: #ffffff;\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n  text-align: center;\n  background-color: #316EEF;\n  border-radius: 8px;\n  border: none;\n}\n.button:hover {\n  cursor: pointer;\n}\n@media (min-width: 768px) {\n  .button {\n    padding: 0.8125rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.calculator-wrapper {\n  display: grid;\n  padding: 0 1.0625rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  grid-template-columns: 100%;\n}\n@media (min-width: 768px) {\n  .calculator-wrapper {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.calculator {\n  padding: 1rem 1rem 2.25rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 0;\n  z-index: 2;\n}\n@media (min-width: 768px) {\n  .calculator {\n    padding: 1.5rem 1.5rem 2.125rem;\n    border-radius: 8px;\n  }\n}\n.calculator__title {\n  margin: 0 0 1rem;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__label {\n  display: block;\n  margin: 0 0 0.5rem;\n  color: #2E2F2F;\n  font-size: 0.875rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.calculator__input-years, .calculator__input-interest {\n  padding-right: 10px;\n  text-align: center;\n}\n\n.invalid-message {\n  display: none;\n  font-size: 0.8125rem;\n  color: #D83E00;\n}\n\n.input {\n  position: relative;\n  border: solid 1px #BBBCBC;\n  border-radius: 8px;\n  padding: 0.875rem 1.5rem;\n  color: #000000;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  width: 100%;\n}\n.input:focus {\n  outline: none;\n  border: solid 1px #316EEF;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.input--with-cost {\n  padding: 0.875rem 1.5rem 0.875rem 2.3125rem;\n}\n\n.invalid .input {\n  margin: 0 0 0.5rem;\n  border: solid 1px #D83E00;\n}\n.invalid .invalid-message {\n  display: block;\n}\n\n.input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: 0.9375rem 1.5625rem;\n  font-size: 1rem;\n  line-height: 1.25rem;\n}\n\n.results {\n  margin: 0 0.375rem;\n  padding: 3.5rem 2rem 3.375rem;\n  background-color: #FBFBFB;\n  display: none;\n  border-radius: 0 0 8px 8px;\n}\n@media (min-width: 768px) {\n  .results {\n    padding: 3.5rem 2rem 2.9375rem;\n    margin: 2.5rem 0 0;\n    display: block;\n    border-radius: 0 8px 8px 0;\n  }\n}\n.results--active {\n  display: block;\n}\n.results--active .results__price {\n  color: #000000;\n}\n.results__title {\n  margin: 0 0 1.5rem;\n}\n.results--title-main {\n  margin: 0 0 1.5rem;\n}\n.results__price {\n  margin: 0;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  text-align: right;\n}\n@media (min-width: 768px) {\n  .results__price {\n    font-size: 1.5rem;\n    line-height: 2.375rem;\n    margin: 0 0 1rem;\n    color: #BBBCBC;\n    text-align: left;\n  }\n}\n.results--price-last {\n  margin: 0;\n}\n.results--price-wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: 1.5625rem 0 0.75rem;\n  border-bottom: solid 1px #DDDDDD;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper {\n    display: block;\n    padding: 0;\n    border: none;\n  }\n}\n.results--price-wrapper-first {\n  padding: 0 0 0.75rem;\n}\n@media (min-width: 768px) {\n  .results--price-wrapper-first {\n    padding: 0;\n  }\n}\n.results__medium-title {\n  margin: 0;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n  color: #5D5D5D;\n}\n@media (min-width: 768px) {\n  .results__medium-title {\n    margin: 0 0 0.5rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n.results__small-title {\n  margin: 0;\n  color: #5D5D5D;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n}\n@media (min-width: 768px) {\n  .results__small-title {\n    line-height: 1.75rem;\n    margin: 0 0 0.5rem;\n  }\n}\n.results__hr {\n  display: none;\n  margin: 0 0 1.5rem;\n}\n@media (min-width: 768px) {\n  .results__hr {\n    display: block;\n  }\n}","// Resets\n* { box-sizing: border-box; }\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\nhr {\n  margin: 0 0 pxToRem(16);\n  border: none;\n  border-bottom: $baseBorderGrayHr;\n  width: calc(100% + pxToRem(32));\n  margin-left: - pxToRem(16);\n\n  @include breakpoint(medium) {\n    width: 100%;\n    margin: 0 0 pxToRem(36);\n    margin-left: 0;\n  }\n}\n\ninput {\n  margin: 0;\n}","// Borders\n$baseBorderRadius: 8px;\n$baseBorderGray: solid 1px $baseGrayBorder;\n$baseBorderGrayHr: solid 1px $baseGray;\n$baseBorderTertiaryRed: solid 1px $tertiaryRed;\n$baseBorderShadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n$baseBorderPrimaryBlue: solid 1px $primaryBlue;","/// Mixin to manage responsive breakpoints\n@mixin breakpoint($breakpoint) {\n  // If the key exists in the map\n  @if map-has-key($breakpoints, $breakpoint) {\n    // Prints a media query based on the value\n    @media (min-width: map-get($breakpoints, $breakpoint)) {\n      @content;\n    }\n  }\n \n  // If the key doesn't exist in the map\n  @else {\n    @warn \"Unfortunately, no value could be retrieved from `#{$breakpoint}`. \"\n        + \"Available breakpoints are: #{map-keys($breakpoints)}.\";\n  }\n}",".header {\n  margin: 0 0 pxToRem(48);\n  box-shadow: $baseBorderShadow;\n\n  &__h1 {\n    padding: pxToRem(15.5) pxToRem(17);\n    margin: auto;\n    max-width: pxToRem($container-max-width);\n    font-family: $publico;\n    font-weight: 400;\n    font-size: pxToRem(20);\n    line-height: pxToRem(25);\n\n    @include breakpoint(medium) {\n      padding: pxToRem(12.5) pxToRem(17);\n      font-size: pxToRem(31);\n      line-height: pxToRem(39);\n    }\n  }\n}\n","// TODO: Should we adjust how groups work?\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 pxToRem(30);\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 pxToRem(36);\n\n  @include breakpoint(medium) {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 pxToRem(21);\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n\n  &__slider {\n    margin: 0 pxToRem(16);\n    -webkit-appearance: none;\n    height: pxToRem(8);\n    background: $primaryBlueDarkest;\n    outline: none;\n    border-radius: $baseBorderRadius;\n\n    @include breakpoint(medium) {\n      height: pxToRem(16);\n    }\n\n    &::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: pxToRem(24);\n      height: pxToRem(24);\n      background: $white;\n      cursor: pointer;\n      box-shadow: $baseBorderShadow;\n      border-radius: 50%;\n\n      @include breakpoint(medium) {\n        width: pxToRem(36);\n        height: pxToRem(36);\n      }\n    }\n\n    &::-moz-range-thumb {\n      width: pxToRem(24);\n      height: pxToRem(24);\n      background: $white;\n      cursor: pointer;\n      box-shadow: $baseBorderShadow;\n      border-radius: 50%;\n\n      @include breakpoint(medium) {\n        width: pxToRem(36);\n        height: pxToRem(36);\n      }\n    }\n  }\n\n  &__scale {\n    font-family: $helvetica;\n    font-size: pxToRem(15);\n    line-height: pxToRem(24);\n\n    @include breakpoint(medium) {\n      font-family: $graphik;\n      font-size: pxToRem(20);\n      line-height: pxToRem(30);\n    }\n  }\n}","// Colors\n$white: #ffffff;\n$baseBlack: #000000;\n$baseBlackLight: #2E2F2F;\n$baseBlackLighter: #5D5D5D;\n$baseGray: #DDDDDD;\n$baseGrayBackground: #FBFBFB;\n$baseGrayBorder: #BBBCBC;\n$primaryBlue: #316EEF;\n$primaryBlueDarkest: #1B3979;\n$tertiaryRed: #D83E00;",".button {\n  display: block;\n  width: 100%;\n  padding: pxToRem(10);\n  color: $white;\n  font-size: pxToRem(18);\n  font-weight: 600;\n  line-height: pxToRem(28);\n  text-align: center;\n  background-color: $primaryBlue;\n  border-radius: $baseBorderRadius;\n  border: none;\n\n  &:hover {\n    cursor: pointer;\n  }\n\n  @include breakpoint(medium) {\n    padding: pxToRem(13);\n    font-size: pxToRem(20);\n    line-height: pxToRem(30);\n  }\n}",".calculator-wrapper {\n  display: grid;\n  padding: 0 pxToRem(17) pxToRem(17);\n  margin: auto;\n  max-width: pxToRem($container-max-width);\n  grid-template-columns: 100%;\n\n  @include breakpoint(medium) {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n// Break inputs into smaller objects\n\n.calculator {\n  padding: pxToRem(16) pxToRem(16) pxToRem(36);\n  box-shadow: $baseBorderShadow;\n  border-radius: 0;\n  z-index: 2;\n\n  @include breakpoint(medium) {\n    padding: pxToRem(24) pxToRem(24) pxToRem(34);\n    border-radius: $baseBorderRadius;\n  }\n\n  &__title {\n    margin: 0 0 pxToRem(16);\n    font-family: $helvetica;\n    font-size: pxToRem(15);\n    font-weight: 400;\n    line-height: pxToRem(24);\n  }\n\n  &__label {\n    display: block;\n    margin: 0 0 pxToRem(8);\n    color: $baseBlackLight;\n    font-size: pxToRem(14);\n    font-weight: 400;\n    line-height: pxToRem(24);\n  }\n\n  &__input-years, \n  &__input-interest {\n    // Add space for number increments when centered.\n    padding-right: 10px;\n    text-align: center;\n  }\n}\n\n.invalid-message {\n  display: none;\n  font-size: pxToRem(13);\n  color: $tertiaryRed;\n}\n\n.input {\n  position: relative;\n  border: $baseBorderGray;\n  border-radius: $baseBorderRadius;\n  padding: pxToRem(14) pxToRem(24);\n  color: $baseBlack;\n  font-size: pxToRem(16);\n  line-height: pxToRem(20);\n  width: 100%;\n\n  &:focus {\n    outline: none;\n    border: $baseBorderPrimaryBlue;\n    box-shadow: $baseBorderShadow;\n  }\n\n  &--with-cost {\n    padding: pxToRem(14) pxToRem(24) pxToRem(14) pxToRem(37);\n  }\n}\n\n.invalid { \n  .input {\n    margin: 0 0 pxToRem(8);\n    border: $baseBorderTertiaryRed;\n  }\n\n  .invalid-message {\n    display: block;\n  }\n}\n\n.input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: pxToRem(15) pxToRem(25);\n  font-size: pxToRem(16);\n  line-height: pxToRem(20);\n}","// Break into smaller modules, modifiers don't make sense\n\n.results {\n  margin: 0 pxToRem(6);\n  padding: pxToRem(56) pxToRem(32) pxToRem(54);\n  background-color: $baseGrayBackground; \n  display: none;\n  border-radius: 0 0 $baseBorderRadius $baseBorderRadius;\n\n  @include breakpoint(medium) {\n    padding: pxToRem(56) pxToRem(32) pxToRem(47);\n    margin: pxToRem(40) 0 0;\n    display: block;\n    border-radius: 0 $baseBorderRadius $baseBorderRadius 0;\n  }\n\n  &--active {\n    display: block;\n\n    .results__price {\n      color: $baseBlack;\n    }\n  }\n\n  &__title {\n    margin: 0 0 pxToRem(24);\n  }\n\n  &--title-main {\n    margin: 0 0 pxToRem(24);\n  }\n\n  &__price {\n    margin: 0;\n    font-size: pxToRem(16);\n    line-height: pxToRem(20);\n    text-align: right;\n\n    @include breakpoint(medium) {\n      font-size: pxToRem(24);\n      line-height: pxToRem(38);\n      margin: 0 0 pxToRem(16);\n      color: $baseGrayBorder;\n      text-align: left;\n    }\n  }\n\n  &--price-last {\n    margin: 0;\n  }\n\n  &--price-wrapper {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    padding: pxToRem(25) 0 pxToRem(12);\n    border-bottom: $baseBorderGrayHr; \n\n    @include breakpoint(medium) {\n      display: block;\n      padding: 0;\n      border: none; \n    }\n  }\n\n  &--price-wrapper-first {\n    padding: 0 0 pxToRem(12);\n\n    @include breakpoint(medium) {\n      padding: 0;\n    }\n  }\n\n  &__medium-title {\n    margin: 0;\n    font-family: $helvetica;\n    font-size: pxToRem(13);\n    line-height: pxToRem(19);\n    color: $baseBlackLighter;\n\n    @include breakpoint(medium) {\n      margin: 0 0 pxToRem(8);\n      font-size: pxToRem(20);\n      line-height: pxToRem(30);\n    }\n  }\n\n  &__small-title {\n    margin: 0;\n    color: $baseBlackLighter;\n    font-family: $helvetica;\n    font-size: pxToRem(13);\n    line-height: pxToRem(19);\n\n    @include breakpoint(medium) {\n      line-height: pxToRem(28);\n      margin: 0 0 pxToRem(8);\n    }\n  }\n\n  &__hr {\n    display: none;\n    margin: 0 0 pxToRem(24);\n\n    @include breakpoint(medium) {\n      display: block;\n    }\n  }\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Graphik\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\n.hr {\n  margin: 0 0 1rem;\n  border: none;\n  border-bottom: solid 1px #DDDDDD;\n  width: calc(100% + 2rem);\n  margin-left: -1rem;\n}\n@media (min-width: 768px) {\n  .hr {\n    width: 100%;\n    margin: 0 0 2.25rem;\n    margin-left: 0;\n  }\n}\n.hr--results {\n  display: none;\n  margin: 0 0 1.5rem;\n}\n@media (min-width: 768px) {\n  .hr--results {\n    display: block;\n  }\n}\n\ninput {\n  margin: 0;\n}\n\n.header {\n  margin: 0 0 3rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.header__h1 {\n  padding: 0.96875rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.25rem;\n  line-height: 1.5625rem;\n}\n@media (min-width: 768px) {\n  .header__h1 {\n    padding: 0.78125rem 1.0625rem;\n    font-size: 1.9375rem;\n    line-height: 2.4375rem;\n  }\n}\n\n.form-wrapper {\n  display: grid;\n  padding: 0 1.0625rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  grid-template-columns: 100%;\n}\n@media (min-width: 768px) {\n  .form-wrapper {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.button {\n  display: block;\n  width: 100%;\n  padding: 0.625rem;\n  color: #ffffff;\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n  text-align: center;\n  background-color: #316EEF;\n  border-radius: 8px;\n  border: none;\n}\n.button:hover {\n  cursor: pointer;\n}\n@media (min-width: 768px) {\n  .button {\n    padding: 0.8125rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.calculator {\n  padding: 1rem 1rem 2.25rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 0;\n  z-index: 2;\n}\n@media (min-width: 768px) {\n  .calculator {\n    padding: 1.5rem 1.5rem 2.125rem;\n    border-radius: 8px;\n  }\n}\n\n.calculator-title {\n  margin: 0 0 1rem;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n\n.label {\n  display: block;\n  margin: 0 0 0.5rem;\n  color: #2E2F2F;\n  font-size: 0.875rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.label--shorten {\n  margin: 0 0 -0.375rem;\n}\n@media (min-width: 768px) {\n  .label--shorten {\n    margin: 0 0 0.5rem;\n  }\n}\n\n.input {\n  position: relative;\n  border: solid 1px #BBBCBC;\n  border-radius: 8px;\n  padding: 0.875rem 1.5rem;\n  color: #000000;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  width: 100%;\n}\n.input:focus {\n  outline: none;\n  border: solid 1px #316EEF;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.input--with-cost {\n  padding: 0.875rem 1.5rem 0.875rem 2.3125rem;\n}\n.input--years, .input--interest {\n  padding-right: 10px;\n  text-align: center;\n}\n\n.invalid-message {\n  display: none;\n  font-size: 0.8125rem;\n  color: #D83E00;\n}\n\n.invalid .input {\n  margin: 0 0 0.5rem;\n  border: solid 1px #D83E00;\n}\n.invalid .invalid-message {\n  display: block;\n}\n\n.input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: 0.9375rem 1.5625rem;\n  font-size: 1rem;\n  line-height: 1.25rem;\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 2.25rem;\n}\n@media (min-width: 768px) {\n  .double-input-group {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 1.3125rem;\n}\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 1.875rem;\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n}\n.range__slider {\n  margin: 0 1rem;\n  -webkit-appearance: none;\n  height: 0.5rem;\n  background: #1B3979;\n  outline: none;\n  border-radius: 8px;\n}\n@media (min-width: 768px) {\n  .range__slider {\n    height: 1rem;\n  }\n}\n.range__slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-webkit-slider-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider::-moz-range-thumb {\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-moz-range-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider:focus::-webkit-slider-thumb {\n  border: solid 1px #316EEF;\n}\n.range__slider:focus::-moz-range-thumb {\n  border: solid 1px #316EEF;\n}\n.range__scale {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  line-height: 1.5rem;\n}\n@media (min-width: 768px) {\n  .range__scale {\n    font-family: \"Graphik\", sans-serif;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.results {\n  margin: 0 0.375rem;\n  padding: 3.5rem 2rem 3.375rem;\n  background-color: #FBFBFB;\n  display: none;\n  border-radius: 0 0 8px 8px;\n}\n@media (min-width: 768px) {\n  .results {\n    padding: 3.5rem 2rem 2.9375rem;\n    margin: 2.5rem 0 0;\n    display: block;\n    border-radius: 0 8px 8px 0;\n  }\n}\n.results--active {\n  display: block;\n}\n.results--active .price__amount {\n  color: #000000;\n}\n\n.result-title {\n  margin: 0 0 1.5rem;\n}\n\n.price {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: 1.5625rem 0 0.75rem;\n  border-bottom: solid 1px #DDDDDD;\n}\n@media (min-width: 768px) {\n  .price {\n    display: block;\n    padding: 0;\n    border: none;\n  }\n}\n.price--first {\n  padding: 0 0 0.75rem;\n}\n@media (min-width: 768px) {\n  .price--first {\n    padding: 0;\n  }\n}\n.price--last .price__amount {\n  margin: 0;\n}\n.price__title {\n  margin: 0;\n  color: #5D5D5D;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n}\n@media (min-width: 768px) {\n  .price__title {\n    line-height: 1.75rem;\n    margin: 0 0 0.5rem;\n  }\n}\n.price__amount {\n  margin: 0;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  text-align: right;\n}\n@media (min-width: 768px) {\n  .price__amount {\n    font-size: 1.5rem;\n    line-height: 2.375rem;\n    margin: 0 0 1rem;\n    color: #BBBCBC;\n    text-align: left;\n  }\n}\n.price__medium-title {\n  margin: 0;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n  color: #5D5D5D;\n}\n@media (min-width: 768px) {\n  .price__medium-title {\n    margin: 0 0 0.5rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}", "",{"version":3,"sources":["webpack://./src/scss/base/_typography.scss","webpack://./src/scss/main.scss","webpack://./src/scss/layout/_general.scss","webpack://./src/scss/base/_borders.scss","webpack://./src/scss/utilities/_breakpoints.scss","webpack://./src/scss/layout/_header.scss","webpack://./src/scss/layout/_form.scss","webpack://./src/scss/modules/_buttons.scss","webpack://./src/scss/base/_colors.scss","webpack://./src/scss/modules/_calculator.scss","webpack://./src/scss/modules/_input.scss","webpack://./src/scss/modules/_range.scss","webpack://./src/scss/modules/_results.scss"],"names":[],"mappings":"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","sourcesContent":["// Fonts\n$helvetica: 'Helvetica Neue', sans-serif;\n\n@font-face {\n  font-family: 'Graphik';\n  src: url(../assets/fonts/Graphik-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$graphik: 'Graphik', sans-serif;\n\n@font-face {\n  font-family: 'Publico';\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format('woff2');\n  font-weight: 400;\n}\n$publico: 'Publico', sans-serif;\n\n// Base Typography settings\nhtml, body {\n  font-family: $graphik;\n  font-weight: 400;\n  font-size: 16px;\n}","@font-face {\n  font-family: \"Graphik\";\n  src: url(../assets/fonts/Graphik-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\n@font-face {\n  font-family: \"Publico\";\n  src: url(../assets/fonts/PublicoHeadline-Medium.woff2) format(\"woff2\");\n  font-weight: 400;\n}\nhtml, body {\n  font-family: \"Graphik\", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\n.hr {\n  margin: 0 0 1rem;\n  border: none;\n  border-bottom: solid 1px #DDDDDD;\n  width: calc(100% + 2rem);\n  margin-left: -1rem;\n}\n@media (min-width: 768px) {\n  .hr {\n    width: 100%;\n    margin: 0 0 2.25rem;\n    margin-left: 0;\n  }\n}\n.hr--results {\n  display: none;\n  margin: 0 0 1.5rem;\n}\n@media (min-width: 768px) {\n  .hr--results {\n    display: block;\n  }\n}\n\ninput {\n  margin: 0;\n}\n\n.header {\n  margin: 0 0 3rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.header__h1 {\n  padding: 0.96875rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  font-family: \"Publico\", sans-serif;\n  font-weight: 400;\n  font-size: 1.25rem;\n  line-height: 1.5625rem;\n}\n@media (min-width: 768px) {\n  .header__h1 {\n    padding: 0.78125rem 1.0625rem;\n    font-size: 1.9375rem;\n    line-height: 2.4375rem;\n  }\n}\n\n.form-wrapper {\n  display: grid;\n  padding: 0 1.0625rem 1.0625rem;\n  margin: auto;\n  max-width: 71.25rem;\n  grid-template-columns: 100%;\n}\n@media (min-width: 768px) {\n  .form-wrapper {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}\n\n.button {\n  display: block;\n  width: 100%;\n  padding: 0.625rem;\n  color: #ffffff;\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n  text-align: center;\n  background-color: #316EEF;\n  border-radius: 8px;\n  border: none;\n}\n.button:hover {\n  cursor: pointer;\n}\n@media (min-width: 768px) {\n  .button {\n    padding: 0.8125rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.calculator {\n  padding: 1rem 1rem 2.25rem;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 0;\n  z-index: 2;\n}\n@media (min-width: 768px) {\n  .calculator {\n    padding: 1.5rem 1.5rem 2.125rem;\n    border-radius: 8px;\n  }\n}\n\n.calculator-title {\n  margin: 0 0 1rem;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n\n.label {\n  display: block;\n  margin: 0 0 0.5rem;\n  color: #2E2F2F;\n  font-size: 0.875rem;\n  font-weight: 400;\n  line-height: 1.5rem;\n}\n.label--shorten {\n  margin: 0 0 -0.375rem;\n}\n@media (min-width: 768px) {\n  .label--shorten {\n    margin: 0 0 0.5rem;\n  }\n}\n\n.input {\n  position: relative;\n  border: solid 1px #BBBCBC;\n  border-radius: 8px;\n  padding: 0.875rem 1.5rem;\n  color: #000000;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  width: 100%;\n}\n.input:focus {\n  outline: none;\n  border: solid 1px #316EEF;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n}\n.input--with-cost {\n  padding: 0.875rem 1.5rem 0.875rem 2.3125rem;\n}\n.input--years, .input--interest {\n  padding-right: 10px;\n  text-align: center;\n}\n\n.invalid-message {\n  display: none;\n  font-size: 0.8125rem;\n  color: #D83E00;\n}\n\n.invalid .input {\n  margin: 0 0 0.5rem;\n  border: solid 1px #D83E00;\n}\n.invalid .invalid-message {\n  display: block;\n}\n\n.input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: 0.9375rem 1.5625rem;\n  font-size: 1rem;\n  line-height: 1.25rem;\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 2.25rem;\n}\n@media (min-width: 768px) {\n  .double-input-group {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 1.3125rem;\n}\n\n.range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 1.875rem;\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n}\n.range__slider {\n  margin: 0 1rem;\n  -webkit-appearance: none;\n  height: 0.5rem;\n  background: #1B3979;\n  outline: none;\n  border-radius: 8px;\n}\n@media (min-width: 768px) {\n  .range__slider {\n    height: 1rem;\n  }\n}\n.range__slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-webkit-slider-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider::-moz-range-thumb {\n  width: 1.5rem;\n  height: 1.5rem;\n  background: #ffffff;\n  cursor: pointer;\n  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n  border-radius: 50%;\n}\n@media (min-width: 768px) {\n  .range__slider::-moz-range-thumb {\n    width: 2.25rem;\n    height: 2.25rem;\n  }\n}\n.range__slider:focus::-webkit-slider-thumb {\n  border: solid 1px #316EEF;\n}\n.range__slider:focus::-moz-range-thumb {\n  border: solid 1px #316EEF;\n}\n.range__scale {\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.9375rem;\n  line-height: 1.5rem;\n}\n@media (min-width: 768px) {\n  .range__scale {\n    font-family: \"Graphik\", sans-serif;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}\n\n.results {\n  margin: 0 0.375rem;\n  padding: 3.5rem 2rem 3.375rem;\n  background-color: #FBFBFB;\n  display: none;\n  border-radius: 0 0 8px 8px;\n}\n@media (min-width: 768px) {\n  .results {\n    padding: 3.5rem 2rem 2.9375rem;\n    margin: 2.5rem 0 0;\n    display: block;\n    border-radius: 0 8px 8px 0;\n  }\n}\n.results--active {\n  display: block;\n}\n.results--active .price__amount {\n  color: #000000;\n}\n\n.result-title {\n  margin: 0 0 1.5rem;\n}\n\n.price {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: 1.5625rem 0 0.75rem;\n  border-bottom: solid 1px #DDDDDD;\n}\n@media (min-width: 768px) {\n  .price {\n    display: block;\n    padding: 0;\n    border: none;\n  }\n}\n.price--first {\n  padding: 0 0 0.75rem;\n}\n@media (min-width: 768px) {\n  .price--first {\n    padding: 0;\n  }\n}\n.price--last .price__amount {\n  margin: 0;\n}\n.price__title {\n  margin: 0;\n  color: #5D5D5D;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n}\n@media (min-width: 768px) {\n  .price__title {\n    line-height: 1.75rem;\n    margin: 0 0 0.5rem;\n  }\n}\n.price__amount {\n  margin: 0;\n  font-size: 1rem;\n  line-height: 1.25rem;\n  text-align: right;\n}\n@media (min-width: 768px) {\n  .price__amount {\n    font-size: 1.5rem;\n    line-height: 2.375rem;\n    margin: 0 0 1rem;\n    color: #BBBCBC;\n    text-align: left;\n  }\n}\n.price__medium-title {\n  margin: 0;\n  font-family: \"Helvetica Neue\", sans-serif;\n  font-size: 0.8125rem;\n  line-height: 1.1875rem;\n  color: #5D5D5D;\n}\n@media (min-width: 768px) {\n  .price__medium-title {\n    margin: 0 0 0.5rem;\n    font-size: 1.25rem;\n    line-height: 1.875rem;\n  }\n}","// Resets\n* { box-sizing: border-box; }\n\nbody {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\n.hr {\n  margin: 0 0 pxToRem(16);\n  border: none;\n  border-bottom: $baseBorderGrayHr;\n  width: calc(100% + pxToRem(32));\n  margin-left: - pxToRem(16);\n\n  @include breakpoint(medium) {\n    width: 100%;\n    margin: 0 0 pxToRem(36);\n    margin-left: 0;\n  }\n\n  &--results {\n    display: none;\n    margin: 0 0 pxToRem(24);\n  \n    @include breakpoint(medium) {\n      display: block;\n    }\n  }\n}\n\ninput {\n  margin: 0;\n}","// Borders\n$baseBorderRadius: 8px;\n$baseBorderGray: solid 1px $baseGrayBorder;\n$baseBorderGrayHr: solid 1px $baseGray;\n$baseBorderTertiaryRed: solid 1px $tertiaryRed;\n$baseBorderShadow: 0px 3px 10px rgba(0, 0, 0, 0.09);\n$baseBorderPrimaryBlue: solid 1px $primaryBlue;","// Mixin to manage responsive breakpoints\n@mixin breakpoint($breakpoint) {\n  // If the key exists in the map\n  @if map-has-key($breakpoints, $breakpoint) {\n    // Prints a media query based on the value\n    @media (min-width: map-get($breakpoints, $breakpoint)) {\n      @content;\n    }\n  }\n \n  // If the key doesn't exist in the map\n  @else {\n    @warn \"Unfortunately, no value could be retrieved from `#{$breakpoint}`. \"\n        + \"Available breakpoints are: #{map-keys($breakpoints)}.\";\n  }\n}",".header {\n  margin: 0 0 pxToRem(48);\n  box-shadow: $baseBorderShadow;\n\n  &__h1 {\n    padding: pxToRem(15.5) pxToRem(17);\n    margin: auto;\n    max-width: pxToRem($container-max-width);\n    font-family: $publico;\n    font-weight: 400;\n    font-size: pxToRem(20);\n    line-height: pxToRem(25);\n\n    @include breakpoint(medium) {\n      padding: pxToRem(12.5) pxToRem(17);\n      font-size: pxToRem(31);\n      line-height: pxToRem(39);\n    }\n  }\n}\n",".form-wrapper {\n  display: grid;\n  padding: 0 pxToRem(17) pxToRem(17);\n  margin: auto;\n  max-width: pxToRem($container-max-width);\n  grid-template-columns: 100%;\n\n  @include breakpoint(medium) {\n    grid-template-columns: minmax(min-content, 667px) auto;\n  }\n}",".button {\n  display: block;\n  width: 100%;\n  padding: pxToRem(10);\n  color: $white;\n  font-size: pxToRem(18);\n  font-weight: 600;\n  line-height: pxToRem(28);\n  text-align: center;\n  background-color: $primaryBlue;\n  border-radius: $baseBorderRadius;\n  border: none;\n\n  &:hover {\n    cursor: pointer;\n  }\n\n  @include breakpoint(medium) {\n    padding: pxToRem(13);\n    font-size: pxToRem(20);\n    line-height: pxToRem(30);\n  }\n}","// Colors\n$white: #ffffff;\n$baseBlack: #000000;\n$baseBlackLight: #2E2F2F;\n$baseBlackLighter: #5D5D5D;\n$baseGray: #DDDDDD;\n$baseGrayBackground: #FBFBFB;\n$baseGrayBorder: #BBBCBC;\n$primaryBlue: #316EEF;\n$primaryBlueDarkest: #1B3979;\n$tertiaryRed: #D83E00;",".calculator {\n  padding: pxToRem(16) pxToRem(16) pxToRem(36);\n  box-shadow: $baseBorderShadow;\n  border-radius: 0;\n  z-index: 2;\n\n  @include breakpoint(medium) {\n    padding: pxToRem(24) pxToRem(24) pxToRem(34);\n    border-radius: $baseBorderRadius;\n  }\n}\n\n.calculator-title {\n  margin: 0 0 pxToRem(16);\n  font-family: $helvetica;\n  font-size: pxToRem(15);\n  font-weight: 400;\n  line-height: pxToRem(24);\n}",".label {\n  display: block;\n  margin: 0 0 pxToRem(8);\n  color: $baseBlackLight;\n  font-size: pxToRem(14);\n  font-weight: 400;\n  line-height: pxToRem(24);\n\n  &--shorten {\n    margin: 0 0 pxToRem(-6);\n\n    @include breakpoint(medium) {\n      margin: 0 0 pxToRem(8);\n    }\n  }\n}\n\n.input {\n  position: relative;\n  border: $baseBorderGray;\n  border-radius: $baseBorderRadius;\n  padding: pxToRem(14) pxToRem(24);\n  color: $baseBlack;\n  font-size: pxToRem(16);\n  line-height: pxToRem(20);\n  width: 100%;\n\n  &:focus {\n    outline: none;\n    border: $baseBorderPrimaryBlue;\n    box-shadow: $baseBorderShadow;\n  }\n\n  &--with-cost {\n    padding: pxToRem(14) pxToRem(24) pxToRem(14) pxToRem(37);\n  }\n\n  &--years, \n  &--interest {\n    // Add space for number increments when centered.\n    padding-right: 10px;\n    text-align: center;\n  }\n}\n\n.invalid-message {\n  display: none;\n  font-size: pxToRem(13);\n  color: $tertiaryRed;\n}\n\n.invalid { \n  .input {\n    margin: 0 0 pxToRem(8);\n    border: $baseBorderTertiaryRed;\n  }\n\n  .invalid-message {\n    display: block;\n  }\n}\n\n.input-cost {\n  position: absolute;\n  z-index: 1;\n  padding: pxToRem(15) pxToRem(25);\n  font-size: pxToRem(16);\n  line-height: pxToRem(20);\n}\n\n.double-input-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  column-gap: 16px;\n  margin: 0 0 pxToRem(36);\n\n  @include breakpoint(medium) {\n    column-gap: 24px;\n  }\n}\n\n.loan-amount-wrapper {\n  margin: 0 0 pxToRem(21);\n}",".range-input-group {\n  display: grid;\n  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);\n  column-gap: 16px;\n  margin: 0 0 pxToRem(30);\n}\n\n.range {\n  display: grid;\n  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);\n  align-items: center;\n\n  &__slider {\n    margin: 0 pxToRem(16);\n    -webkit-appearance: none;\n    height: pxToRem(8);\n    background: $primaryBlueDarkest;\n    outline: none;\n    border-radius: $baseBorderRadius;\n\n    @include breakpoint(medium) {\n      height: pxToRem(16);\n    }\n\n    &::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: pxToRem(24);\n      height: pxToRem(24);\n      background: $white;\n      cursor: pointer;\n      box-shadow: $baseBorderShadow;\n      border-radius: 50%;\n\n      @include breakpoint(medium) {\n        width: pxToRem(36);\n        height: pxToRem(36);\n      }\n    }\n\n    &::-moz-range-thumb {\n      width: pxToRem(24);\n      height: pxToRem(24);\n      background: $white;\n      cursor: pointer;\n      box-shadow: $baseBorderShadow;\n      border-radius: 50%;\n\n      @include breakpoint(medium) {\n        width: pxToRem(36);\n        height: pxToRem(36);\n      }\n    }\n\n    // Added focus on slider thumb for accesibility.\n    &:focus {\n      &::-webkit-slider-thumb {\n        border: $baseBorderPrimaryBlue;\n      }\n\n      &::-moz-range-thumb {\n        border: $baseBorderPrimaryBlue;\n      }\n    }\n  }\n\n  &__scale {\n    font-family: $helvetica;\n    font-size: pxToRem(15);\n    line-height: pxToRem(24);\n\n    @include breakpoint(medium) {\n      font-family: $graphik;\n      font-size: pxToRem(20);\n      line-height: pxToRem(30);\n    }\n  }\n}",".results {\n  margin: 0 pxToRem(6);\n  padding: pxToRem(56) pxToRem(32) pxToRem(54);\n  background-color: $baseGrayBackground; \n  display: none; // Hide on mobile until form entry.\n  border-radius: 0 0 $baseBorderRadius $baseBorderRadius;\n\n  @include breakpoint(medium) {\n    padding: pxToRem(56) pxToRem(32) pxToRem(47);\n    margin: pxToRem(40) 0 0;\n    display: block;\n    border-radius: 0 $baseBorderRadius $baseBorderRadius 0;\n  }\n\n  &--active {\n    display: block;\n\n    .price__amount {\n      color: $baseBlack;\n    }\n  }\n}\n\n.result-title {\n  margin: 0 0 pxToRem(24);\n}\n\n.price {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  padding: pxToRem(25) 0 pxToRem(12);\n  border-bottom: $baseBorderGrayHr; \n\n  @include breakpoint(medium) {\n    display: block;\n    padding: 0;\n    border: none; \n  }\n\n  &--first {\n    padding: 0 0 pxToRem(12);\n  \n    @include breakpoint(medium) {\n      padding: 0;\n    }\n  }\n\n  &--last .price__amount {\n    margin: 0;\n  }\n\n  &__title {\n    margin: 0;\n    color: $baseBlackLighter;\n    font-family: $helvetica;\n    font-size: pxToRem(13);\n    line-height: pxToRem(19);\n\n    @include breakpoint(medium) {\n      line-height: pxToRem(28);\n      margin: 0 0 pxToRem(8);\n    }\n  }\n\n  &__amount {\n    margin: 0;\n    font-size: pxToRem(16);\n    line-height: pxToRem(20);\n    text-align: right;\n  \n    @include breakpoint(medium) {\n      font-size: pxToRem(24);\n      line-height: pxToRem(38);\n      margin: 0 0 pxToRem(16);\n      color: $baseGrayBorder;\n      text-align: left;\n    }\n  }\n\n  &__medium-title {\n    margin: 0;\n    font-family: $helvetica;\n    font-size: pxToRem(13);\n    line-height: pxToRem(19);\n    color: $baseBlackLighter;\n\n    @include breakpoint(medium) {\n      margin: 0 0 pxToRem(8);\n      font-size: pxToRem(20);\n      line-height: pxToRem(30);\n    }\n  }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -358,7 +495,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"Graphik
   \*****************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -470,7 +606,6 @@ module.exports = function (cssWithMappingToString) {
   \********************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (url, options) {
@@ -509,7 +644,6 @@ module.exports = function (url, options) {
   \************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (item) {
@@ -541,7 +675,6 @@ module.exports = function (item) {
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -558,7 +691,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_main_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./main.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/scss/main.scss");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./main.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss");
 
       
       
@@ -580,12 +713,12 @@ options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWi
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_use_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -596,7 +729,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -710,7 +842,6 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -759,7 +890,6 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -780,7 +910,6 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -802,7 +931,6 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -882,7 +1010,6 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -908,7 +1035,6 @@ module.exports = styleTagTransform;
   \***********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 module.exports = __webpack_require__.p + "840ddb2af0b18113d6ef.woff2";
 
 /***/ }),
@@ -919,7 +1045,6 @@ module.exports = __webpack_require__.p + "840ddb2af0b18113d6ef.woff2";
   \*******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 module.exports = __webpack_require__.p + "5f9d937264cebf83392a.woff2";
 
 /***/ })
@@ -1054,25 +1179,39 @@ module.exports = __webpack_require__.p + "5f9d937264cebf83392a.woff2";
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./src/scss/main.scss");
-/* harmony import */ var _handle_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handle-form */ "./src/js/handle-form.js");
+/* harmony import */ var _form_watcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form-watcher */ "./src/js/form-watcher.js");
 /* harmony import */ var _form_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-slider */ "./src/js/form-slider.js");
-/* harmony import */ var _form_slider__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_form_slider__WEBPACK_IMPORTED_MODULE_2__);
 /* Load main CSS. */
 
 /* Import form handler. */
 
 
+/* Create FormWatcher class. */
+
+var formWatcher = new _form_watcher__WEBPACK_IMPORTED_MODULE_1__["default"]();
+document.querySelectorAll('.calculator').forEach(function (form) {
+  formWatcher.form = form;
+  formWatcher.processForm();
+});
 /* Import form slider. */
 
 
+/* Create FormSlider class. */
+
+var formslider = new _form_slider__WEBPACK_IMPORTED_MODULE_2__["default"]();
+/* Process each range group. */
+
+document.querySelectorAll('.range-input-group').forEach(function (rangeInputGroup) {
+  formslider.rangeInputGroup = rangeInputGroup;
+  formslider.processSlider();
+});
 })();
 
 /******/ })()

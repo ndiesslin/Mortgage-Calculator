@@ -51,6 +51,17 @@
         height: pxToRem(36);
       }
     }
+
+    // Added focus on slider thumb for accesibility.
+    &:focus {
+      &::-webkit-slider-thumb {
+        border: $baseBorderPrimaryBlue;
+      }
+
+      &::-moz-range-thumb {
+        border: $baseBorderPrimaryBlue;
+      }
+    }
   }
 
   &__scale {
