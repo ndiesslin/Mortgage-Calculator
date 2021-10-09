@@ -59,9 +59,19 @@ input {
   margin: 0;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
 .header {
-  margin: 0 0 3rem;
+  margin: 0 0 1.5rem;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);
+}
+@media (min-width: 768px) {
+  .header {
+    margin: 0 0 3rem;
+  }
 }
 .header__h1 {
   padding: 0.96875rem 1.0625rem;
@@ -174,8 +184,13 @@ input {
   padding: 0.875rem 1.5rem 0.875rem 2.3125rem;
 }
 .input--years, .input--interest {
-  padding-right: 10px;
+  padding: 0.875rem 0.3125rem;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .input--years, .input--interest {
+    padding: 0.875rem 1.5rem;
+  }
 }
 
 .invalid-message {
@@ -218,15 +233,25 @@ input {
 
 .range-input-group {
   display: grid;
-  grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);
+  grid-template-columns: calc(100% - 88px - 16px) minmax(min-content, 88px);
   column-gap: 16px;
   margin: 0 0 1.875rem;
+}
+@media (min-width: 768px) {
+  .range-input-group {
+    grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);
+  }
 }
 
 .range {
   display: grid;
-  grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);
+  grid-template-columns: 1.5rem calc(100% - 3rem) 1.5rem;
   align-items: center;
+}
+@media (min-width: 768px) {
+  .range {
+    grid-template-columns: minmax(max-content, 27px) 1fr minmax(max-content, 27px);
+  }
 }
 .range__slider {
   margin: 0 1rem;

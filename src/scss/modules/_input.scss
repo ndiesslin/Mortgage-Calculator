@@ -35,11 +35,15 @@
     padding: pxToRem(14) pxToRem(24) pxToRem(14) pxToRem(37);
   }
 
+  // Special spacing for inputs used by sliders
   &--years, 
   &--interest {
-    // Add space for number increments when centered.
-    padding-right: 10px;
+    padding: pxToRem(14) pxToRem(5);
     text-align: center;
+    
+    @include breakpoint(medium) {
+      padding: pxToRem(14) pxToRem(24);
+    }
   }
 }
 

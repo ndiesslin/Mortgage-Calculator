@@ -1,6 +1,10 @@
 .header {
-  margin: 0 0 pxToRem(48);
+  margin: 0 0 pxToRem(24);
   box-shadow: $baseBorderShadow;
+
+  @include breakpoint(medium) {
+    margin: 0 0 pxToRem(48);
+  }
 
   &__h1 {
     padding: pxToRem(15.5) pxToRem(17);
