@@ -1,4 +1,4 @@
-# ConsumerAffairs Mortgage Calculator
+# Mortgage Calculator
 
 __Summary:__ The purpose of this document is to define how to use this project and the requirements of the mortgage calculator code challenge.
 
