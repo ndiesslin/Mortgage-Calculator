@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mortgage Calculator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000">
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__h1">Mortgage Calculator</h1>
+  </header>
+
+  <section class="form-wrapper">
+    <form class="calculator">
+      <fieldset>
+        <legend class="calculator-title">Change values to calculate your results</legend>
+        <hr class="hr">
+        <label for="years" class="label label--shorten">Years of mortgage</label>
+        <div class="range-input-group">
+          <div class="range">
+            <span class="range__scale">
+              1
+            </span>
+            <input class="range__slider range__years" type="range" min="1" max="40" data-target=".input--years" aria-label="Years range">
+            <span class="range__scale">
+              40
+            </span>
+          </div>
+          <input class="input input--years" type="number" id="years" name="years" min="1" max="40" data-target=".range__years">
+          <div class="invalid-message">Mandatory field</div>
+        </div>
+
+        <label for="interest" class="label label--shorten">Rate of interest (%)</label>
+        <div class="range-input-group">
+          <div class="range">
+            <span class="range__scale">
+              0.1
+            </span>
+            <input class="range__slider range__interest" type="range" min="0.1" max="10" step="0.1" data-target=".input--interest" aria-label="Interest range">
+            <span class="range__scale">
+              10
+            </span>
+          </div>
+          <input class="input input--interest" type="number" id="interest" name="interest" min="0.1" max="10" step="0.1" data-target=".range__interest">
+          <div class="invalid-message">Mandatory field</div>
+        </div>
+
+        <div class="loan-amount-wrapper">
+          <label for="amount" class="label">Loan Amount</label>
+          <div>
+            <span class="input-cost">$</span>
+            <input class="input input--amount input--with-cost" type="number" id="amount" name="amount">
+            <div class="invalid-message">Mandatory field</div>
+          </div>
+        </div>
+
+        <div class="double-input-group">
+          <div>
+            <label for="tax" class="label">Annual Tax</label>
+            <div>
+              <span class="input-cost">$</span>
+              <input class="input input--tax input--with-cost" type="number" id="tax" name="tax">
+              <div class="invalid-message">Mandatory field</div>
+            </div>
+          </div>
+
+          <div>
+            <label for="insurance" class="label">Annual Insurance</label>
+            <div>
+              <span class="input-cost">$</span>
+              <input class="input input--insurance input--with-cost" type="number" id="insurance" name="insurance">
+              <div class="invalid-message">Mandatory field</div>
+            </div>
+          </div>
+        </div>
+
+        <input class="button" type="submit" value="Calculate">
+      </fieldset>
+    </form>
+
+    <aside>
+      <div class="results">
+        <h2 class="result-title">Your results</h2>
+        <div class="price price--first">
+          <p class="price__title">Principal & Interest</p>
+          <p class="price__amount price__amount-principal">$ - -</p>
+        </div>
+        <div class="price">
+          <p class="price__title">Tax</p>
+          <p class="price__amount price__amount-tax">$ - -</p>
+        </div>
+        <div class="price">
+          <p class="price__title">Insurance</p>
+          <p class="price__amount price__amount-insurance">$ - -</p>
+          <hr class="hr hr--results">
+        </div>
+        <div class="price price--last">
+          <p class="price__medium-title">Total Monthly Payment</p>
+          <p class="price__amount price__amount-total results--price-last">$ - -</p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
