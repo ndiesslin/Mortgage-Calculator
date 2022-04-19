@@ -3,10 +3,6 @@
   grid-template-columns: calc(100% - 88px - 16px) minmax(min-content, 88px);
   column-gap: 16px;
   margin: 0 0 pxToRem(30);
-
-  @include breakpoint(medium) {
-    grid-template-columns: minmax(max-content, 677px) minmax(max-content, 88px);
-  }
 }
 
 .range {
